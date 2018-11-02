@@ -49,19 +49,21 @@ class GameTapMania
         return currentConf
     }
     
-    public func evaluate(played : BallValue)
+    public func evaluate(played : BallValue) ->Bool
     {
         if(_endOfGame)
         {
-            return
+            return false
         }
         if(played == currentConf[4])
         {
             increaseScore()
+            return true
         }
         else
         {
             decreaseScore()
+            return false
         }
     }
     
@@ -99,30 +101,22 @@ class GameTapMania
     private func changeConfProbapility(probrability: Int)
     {
         let random = Int.random(in: 0..<10)
-        if random<probrability
+        if random>=probrability
         {
-            for var ball in currentConf
-            {
-                ball = randomBall(actualValue: ball)
-            }
+            currentConf[4] = currentConf.prefix(4).randomElement()!
         }
         else
         {
-            currentConf[4] = randomBall(actualValue: currentConf[4])
-        }
-    }
-    
-    private func randomBall(actualValue: BallValue)->BallValue
-    {
-        var temp = [BallValue]()
-        for t in currentConf
-        {
-            if t != actualValue
+            var newConf = currentConf.prefix(4)
+            newConf.shuffle()
+            newConf.append(newConf.randomElement()!)
+            var i = 0
+            for t in newConf
             {
-                temp.append(t)
+                currentConf[i] = t
+                i += 1
             }
         }
-        return temp.randomElement()!
     }
     
     public func endOfGame()

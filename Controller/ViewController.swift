@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class ViewController: UIViewController {
-    var gameController = GameTapMania(difficult: Difficulty.Easy)
+    var gameController = GameTapMania(difficult: Difficulty.Unfair)
     let colors = [#colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1),#colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1),#colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1),#colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)]
     var tick = 60
     var timer : Timer?
@@ -36,8 +37,9 @@ class ViewController: UIViewController {
     //********* ACTIONS *********
     @IBAction func button_Press(_ sender: UIButton) {
         let t = convertColorToEnumValue(color: sender.backgroundColor!)
-        gameController.evaluate(played: t)
+        produceVibration(evaluation: gameController.evaluate(played: t))
         updateScore()
+        buttonPressAnimation(button: sender)
     }
     //********* END ACTIONS *********
     
@@ -93,13 +95,35 @@ class ViewController: UIViewController {
     //_______________________END_INTERPRETS
     
     //_______________________VISUAL
+    
+    private func produceVibration(evaluation: Bool)
+    {
+        if !evaluation
+        {
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
+        }
+    }
+    
     //Round Button Corners
     private func formatButton(buttons: [UIButton])
     {
         for b in buttons
         {
             b.layer.cornerRadius = 0.5 * b.frame.size.height
+            b.layer.shadowColor = UIColor.black.cgColor
+            b.layer.shadowOffset = CGSize(width: 5, height: 5)
+            b.layer.shadowRadius = 5
+            b.layer.shadowOpacity = 1.0
         }
+    }
+    
+    private func buttonPressAnimation (button: UIButton)
+    {
+        UIButton.animate(withDuration: 0.05,
+                        animations:{button.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)},
+                        completion:{ finish in UIButton.animate(withDuration: 0.05,
+                                                                animations: {button.transform = CGAffineTransform.identity})})
     }
     
     //Create timer
