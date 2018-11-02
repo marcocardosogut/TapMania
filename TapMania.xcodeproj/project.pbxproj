@@ -12,6 +12,7 @@
 		A85D70E9218CB73B009DDC97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85D70E7218CB73B009DDC97 /* Main.storyboard */; };
 		A85D70EB218CB73D009DDC97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85D70EA218CB73D009DDC97 /* Assets.xcassets */; };
 		A85D70EE218CB73D009DDC97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85D70EC218CB73D009DDC97 /* LaunchScreen.storyboard */; };
+		A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D70F8218CB82F009DDC97 /* GameTapMania.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A85D70EA218CB73D009DDC97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A85D70ED218CB73D009DDC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A85D70EF218CB73D009DDC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85D70F8218CB82F009DDC97 /* GameTapMania.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTapMania.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,9 @@
 		A85D70D7218CB73B009DDC97 = {
 			isa = PBXGroup;
 			children = (
+				A85D70F7218CB7BA009DDC97 /* Controller */,
+				A85D70F6218CB7B5009DDC97 /* View */,
+				A85D70F5218CB7AC009DDC97 /* Model */,
 				A85D70E2218CB73B009DDC97 /* TapMania */,
 				A85D70E1218CB73B009DDC97 /* Products */,
 			);
@@ -55,13 +60,35 @@
 			isa = PBXGroup;
 			children = (
 				A85D70E3218CB73B009DDC97 /* AppDelegate.swift */,
-				A85D70E5218CB73B009DDC97 /* ViewController.swift */,
-				A85D70E7218CB73B009DDC97 /* Main.storyboard */,
 				A85D70EA218CB73D009DDC97 /* Assets.xcassets */,
 				A85D70EC218CB73D009DDC97 /* LaunchScreen.storyboard */,
 				A85D70EF218CB73D009DDC97 /* Info.plist */,
 			);
 			path = TapMania;
+			sourceTree = "<group>";
+		};
+		A85D70F5218CB7AC009DDC97 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A85D70F8218CB82F009DDC97 /* GameTapMania.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A85D70F6218CB7B5009DDC97 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A85D70E7218CB73B009DDC97 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A85D70F7218CB7BA009DDC97 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A85D70E5218CB73B009DDC97 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +164,7 @@
 			files = (
 				A85D70E6218CB73B009DDC97 /* ViewController.swift in Sources */,
 				A85D70E4218CB73B009DDC97 /* AppDelegate.swift in Sources */,
+				A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
