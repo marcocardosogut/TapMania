@@ -13,6 +13,11 @@
 		A85D70EB218CB73D009DDC97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85D70EA218CB73D009DDC97 /* Assets.xcassets */; };
 		A85D70EE218CB73D009DDC97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85D70EC218CB73D009DDC97 /* LaunchScreen.storyboard */; };
 		A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D70F8218CB82F009DDC97 /* GameTapMania.swift */; };
+		A85D7103218DEE8A009DDC97 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D7102218DEE8A009DDC97 /* GameOverViewController.swift */; };
+		A85D7107218E09A8009DDC97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D7106218E09A8009DDC97 /* SettingsViewController.swift */; };
+		A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D7108218E09BE009DDC97 /* DifficultViewController.swift */; };
+		A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710A218E09D1009DDC97 /* RecordViewController.swift */; };
+		A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710C218E09FF009DDC97 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		A85D70ED218CB73D009DDC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A85D70EF218CB73D009DDC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85D70F8218CB82F009DDC97 /* GameTapMania.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTapMania.swift; sourceTree = "<group>"; };
+		A85D7102218DEE8A009DDC97 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		A85D7106218E09A8009DDC97 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A85D7108218E09BE009DDC97 /* DifficultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultViewController.swift; sourceTree = "<group>"; };
+		A85D710A218E09D1009DDC97 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		A85D710C218E09FF009DDC97 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				A85D70E5218CB73B009DDC97 /* ViewController.swift */,
+				A85D7102218DEE8A009DDC97 /* GameOverViewController.swift */,
+				A85D7106218E09A8009DDC97 /* SettingsViewController.swift */,
+				A85D7108218E09BE009DDC97 /* DifficultViewController.swift */,
+				A85D710A218E09D1009DDC97 /* RecordViewController.swift */,
+				A85D710C218E09FF009DDC97 /* MenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,9 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85D7103218DEE8A009DDC97 /* GameOverViewController.swift in Sources */,
 				A85D70E6218CB73B009DDC97 /* ViewController.swift in Sources */,
 				A85D70E4218CB73B009DDC97 /* AppDelegate.swift in Sources */,
+				A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */,
+				A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */,
+				A85D7107218E09A8009DDC97 /* SettingsViewController.swift in Sources */,
 				A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */,
+				A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQK4MMEAE8;
 				INFOPLIST_FILE = TapMania/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +352,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQK4MMEAE8;
 				INFOPLIST_FILE = TapMania/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

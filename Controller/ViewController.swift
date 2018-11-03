@@ -120,9 +120,9 @@ class ViewController: UIViewController {
     
     private func buttonPressAnimation (button: UIButton)
     {
-        UIButton.animate(withDuration: 0.05,
+        UIButton.animate(withDuration: 0.01,
                         animations:{button.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)},
-                        completion:{ finish in UIButton.animate(withDuration: 0.05,
+                        completion:{ finish in UIButton.animate(withDuration: 0.01,
                                                                 animations: {button.transform = CGAffineTransform.identity})})
     }
     
@@ -153,9 +153,12 @@ class ViewController: UIViewController {
         {
             gameController.endOfGame()
             timer!.invalidate()
+            /* let next:GameOverViewController = storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
+            self.navigationController?.pushViewController(next, animated: true) */
         }
         
     }
+    
     //_______________________END_VISUAL
     
     //********* END AUXILIARS *********
