@@ -9,9 +9,16 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    @IBOutlet weak var button_Background: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        button_Background.layer.cornerRadius = 0.5 * button_Background.frame.size.height
+        button_Background.layer.shadowColor = UIColor.black.cgColor
+        button_Background.layer.shadowOffset = CGSize(width: 5, height: 5)
+        button_Background.layer.shadowRadius = 5
+        button_Background.layer.shadowOpacity = 1.0
 
         // Do any additional setup after loading the view.
     }

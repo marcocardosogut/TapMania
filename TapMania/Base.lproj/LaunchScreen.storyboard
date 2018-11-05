@@ -17,13 +17,29 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP MANIA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h04-qs-sfE">
+                                <rect key="frame" x="224" y="147.66666666666666" width="364" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="364" id="EQs-YH-2Ei"/>
+                                    <constraint firstAttribute="height" constant="80" id="jgh-MP-4Ea"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="67"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14549741150000001" green="0.152087003" blue="0.19608399269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="h04-qs-sfE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6tm-wG-RMV"/>
+                            <constraint firstItem="h04-qs-sfE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wAg-sp-oRz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.463054187192121" y="373.60000000000002"/>
         </scene>
     </scenes>
 </document>
