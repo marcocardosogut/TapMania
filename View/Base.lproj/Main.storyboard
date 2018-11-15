@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tyg-GL-PHc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IEq-6i-JiE">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Settings View Controller-->
         <scene sceneID="DD8-lb-gcP">
             <objects>
-                <viewController id="IEq-6i-JiE" customClass="SettingsViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="IEq-6i-JiE" customClass="SettingsViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecg-W7-eLX">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,11 +75,12 @@
                     </view>
                     <connections>
                         <outlet property="button_Background" destination="cm2-DD-W8T" id="FQv-Td-b6z"/>
+                        <segue destination="078-Q0-PB5" kind="show" id="dlh-b3-vFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udf-Ga-b19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-669" y="823"/>
+            <point key="canvasLocation" x="-1624" y="1442"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="JUN-6R-dcg">
@@ -155,11 +156,12 @@
                     </view>
                     <connections>
                         <outlet property="button_Background" destination="H74-3H-EYE" id="PDW-AJ-pf3"/>
+                        <segue destination="078-Q0-PB5" kind="show" id="tf7-La-yrc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edo-yx-DAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-669" y="1626"/>
+            <point key="canvasLocation" x="-815" y="1705"/>
         </scene>
         <!--Difficult View Controller-->
         <scene sceneID="87c-Ua-yRz">
@@ -275,11 +277,12 @@
                     </view>
                     <connections>
                         <outlet property="button_Background" destination="S6h-nv-Ijv" id="NYK-PB-OiC"/>
+                        <segue destination="078-Q0-PB5" kind="show" id="37b-bj-THy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLB-G5-lwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-669.45812807881771" y="2420"/>
+            <point key="canvasLocation" x="-21" y="1782"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="D2D-ak-Xt3">
@@ -325,7 +328,7 @@
                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                 <state key="normal" image="1497597787_finish_flag"/>
                                 <connections>
-                                    <action selector="button_ReplaceSelection:" destination="078-Q0-PB5" eventType="touchUpInside" id="M6n-8t-zYE"/>
+                                    <action selector="selected_Touch:" destination="078-Q0-PB5" eventType="touchUpInside" id="sZS-Qc-eLH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fld-Iz-64o" userLabel="Button_Bottom">
@@ -369,6 +372,10 @@
                         <outlet property="button_Middle" destination="R6m-Go-KpE" id="NeA-Hy-M8D"/>
                         <outlet property="button_Selected" destination="G2B-lX-XUH" id="qff-7B-ezN"/>
                         <outlet property="button_Top" destination="Sc4-ev-GQw" id="irT-gK-nuK"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="playView" id="7wb-a8-SJo"/>
+                        <segue destination="IEq-6i-JiE" kind="show" id="J1j-Iq-6rx"/>
+                        <segue destination="bBE-f1-19G" kind="show" id="gEm-UM-e78"/>
+                        <segue destination="tGU-MW-LOv" kind="show" id="Yiv-T7-LO2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLg-AR-2h9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -493,11 +500,12 @@
                         <outlet property="button_TR" destination="gx8-fr-4e0" id="xvE-RG-v3w"/>
                         <outlet property="label_Score" destination="Bk8-Sk-QNZ" id="DWD-79-IXu"/>
                         <outlet property="label_Timer" destination="AsZ-Ot-56U" id="ay0-AZ-k8i"/>
+                        <segue destination="Tyg-GL-PHc" kind="show" id="YOh-xo-dPC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.384236453201972" y="48.799999999999997"/>
+            <point key="canvasLocation" x="84" y="529"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="6yW-Uk-t7Q">
@@ -564,10 +572,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YQL-uR-ghc"/>
                     </view>
+                    <connections>
+                        <outlet property="button_Menu" destination="EnA-jQ-y9H" id="gJs-TH-gp1"/>
+                        <outlet property="button_PlayAgain" destination="mRV-W6-BIK" id="gPR-fD-EhL"/>
+                        <outlet property="label_NewRecord" destination="Ktn-Gu-j0G" id="ivD-Ly-p3I"/>
+                        <segue destination="078-Q0-PB5" kind="show" id="eXl-Gr-DXk"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="ILC-ET-TAO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEi-of-yxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="681.2807881773399" y="45.600000000000001"/>
+            <point key="canvasLocation" x="559" y="-702"/>
         </scene>
     </scenes>
     <resources>
@@ -581,4 +596,8 @@
         <image name="1497599166_timer" width="100" height="128"/>
         <image name="1497599525_cool" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ILC-ET-TAO"/>
+        <segue reference="dlh-b3-vFY"/>
+    </inferredMetricsTieBreakers>
 </document>

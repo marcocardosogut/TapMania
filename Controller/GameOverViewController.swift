@@ -9,9 +9,15 @@
 import UIKit
 
 class GameOverViewController: UIViewController {
-
+    @IBOutlet weak var button_Menu: UIButton!
+    @IBOutlet weak var button_PlayAgain: UIButton!
+    @IBOutlet weak var label_NewRecord: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //b.layer.cornerRadius = 0.5 * b.frame.size.height
+        button_Menu.layer.cornerRadius = 0.5 * button_Menu.frame.size.height
+        button_PlayAgain.layer.cornerRadius = 0.5 * button_PlayAgain.frame.size.height
 
         // Do any additional setup after loading the view.
     }

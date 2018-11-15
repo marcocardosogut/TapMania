@@ -8,8 +8,14 @@
 
 import UIKit
 
+enum gameMenu : String {
+    case Play = "playView"
+    case Settings = "settingsView"
+    case Records = "recordsView"
+    case Difficult = "difficultView"
+}
+
 class MenuViewController: UIViewController {
-    
     //********* VISUALS *********
     @IBOutlet weak var button_Bottom: UIButton!
     @IBOutlet weak var button_Selected: UIButton!
@@ -17,10 +23,11 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var button_Middle: UIButton!
     @IBOutlet weak var label_Action: UILabel!
     //********* END VISUALS *********
+    var currentSelection : gameMenu = gameMenu.Play
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        currentSelection = gameMenu.Play
         let buttonContainer = [button_Top,button_Bottom,button_Middle,button_Selected]
         formatButton(buttons: buttonContainer as! [UIButton])
         // Do any additional setup after loading the view.
@@ -51,6 +58,15 @@ class MenuViewController: UIViewController {
     }
     
     
+    @IBAction func selected_Touch(_ sender: UIButton) {
+        buttonPressAnimation(button: sender)
+        changeMenuView()
+    }
+    
+    func changeMenuView()
+    {
+        performSegue(withIdentifier: currentSelection.rawValue, sender: nil)
+    }
     /*
     // MARK: - Navigation
 
