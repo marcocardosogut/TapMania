@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var button_Background: UIButton!
+    @IBOutlet weak var button_Back: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +20,17 @@ class SettingsViewController: UIViewController {
         button_Background.layer.shadowOffset = CGSize(width: 5, height: 5)
         button_Background.layer.shadowRadius = 5
         button_Background.layer.shadowOpacity = 1.0
+        let height = UIScreen.main.bounds.height
+        let widht  = UIScreen.main.bounds.width
+        button_Back.frame = CGRect(x: 0, y: 0, width: widht, height: height)
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func returnMainMenu(_ sender: UIButton) {
+        performSegue(withIdentifier: "segue_SettingsToMainMenu", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

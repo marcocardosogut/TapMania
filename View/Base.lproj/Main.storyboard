@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IEq-6i-JiE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tGU-MW-LOv">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,6 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsI-CN-R8w" userLabel="Button_BACK">
+                                <rect key="frame" x="96" y="-9" width="607" height="383"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14516827464103699" green="0.15286648273468018" blue="0.19597381353378296" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="returnMainMenu:" destination="IEq-6i-JiE" eventType="touchUpInside" id="g5H-3O-qKU"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cm2-DD-W8T">
                                 <rect key="frame" x="156" y="-62.666666666666657" width="500" height="500.33333333333326"/>
                                 <color key="backgroundColor" red="0.45873260498046875" green="0.82801735401153564" blue="0.43914294242858887" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -74,13 +82,14 @@
                         <viewLayoutGuide key="safeArea" id="RSd-pI-Zup"/>
                     </view>
                     <connections>
+                        <outlet property="button_Back" destination="QsI-CN-R8w" id="6si-n4-IPo"/>
                         <outlet property="button_Background" destination="cm2-DD-W8T" id="FQv-Td-b6z"/>
-                        <segue destination="078-Q0-PB5" kind="show" id="dlh-b3-vFY"/>
+                        <segue destination="078-Q0-PB5" kind="show" identifier="segue_SettingsToMainMenu" id="dlh-b3-vFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udf-Ga-b19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1624" y="1442"/>
+            <point key="canvasLocation" x="-1636" y="1426"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="JUN-6R-dcg">
@@ -90,6 +99,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DE4-GN-IYL" userLabel="Button_BACK">
+                                <rect key="frame" x="103" y="-8" width="607" height="383"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14516827464103699" green="0.15286648273468018" blue="0.19597381353378296" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="returnMainMenu:" destination="IEq-6i-JiE" eventType="touchUpInside" id="7CG-Pn-p7p"/>
+                                    <action selector="returnMainMenu:" destination="bBE-f1-19G" eventType="touchUpInside" id="w6M-ip-2Xa"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H74-3H-EYE">
                                 <rect key="frame" x="156" y="-62.666666666666657" width="500" height="500.33333333333326"/>
                                 <color key="backgroundColor" red="0.91138607263565063" green="0.26190087199211121" blue="0.34900858998298645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -155,8 +173,9 @@
                         <viewLayoutGuide key="safeArea" id="1Xl-Sj-BmX"/>
                     </view>
                     <connections>
+                        <outlet property="button_Back" destination="DE4-GN-IYL" id="B1B-Rf-M0V"/>
                         <outlet property="button_Background" destination="H74-3H-EYE" id="PDW-AJ-pf3"/>
-                        <segue destination="078-Q0-PB5" kind="show" id="tf7-La-yrc"/>
+                        <segue destination="078-Q0-PB5" kind="show" identifier="segue_RecordsToMainMenu" id="tf7-La-yrc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edo-yx-DAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,6 +190,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVf-tB-cuP" userLabel="Button_BACK">
+                                <rect key="frame" x="103" y="-4" width="607" height="383"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14516827464103699" green="0.15286648273468018" blue="0.19597381353378296" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="returnMainMenu:" destination="tGU-MW-LOv" eventType="touchUpInside" id="GlV-FJ-Evc"/>
+                                    <action selector="returnMainMenu:" destination="IEq-6i-JiE" eventType="touchUpInside" id="MJT-oc-U8d"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-nv-Ijv">
                                 <rect key="frame" x="156" y="-62.666666666666657" width="500" height="500.33333333333326"/>
                                 <color key="backgroundColor" red="0.93465107679367065" green="0.60034042596817017" blue="0.21554851531982422" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -276,8 +304,9 @@
                         <viewLayoutGuide key="safeArea" id="lbb-Tg-lNL"/>
                     </view>
                     <connections>
+                        <outlet property="button_Back" destination="WVf-tB-cuP" id="k1a-pi-Axe"/>
                         <outlet property="button_Background" destination="S6h-nv-Ijv" id="NYK-PB-OiC"/>
-                        <segue destination="078-Q0-PB5" kind="show" id="37b-bj-THy"/>
+                        <segue destination="078-Q0-PB5" kind="show" identifier="segue_DifficultToMainMenu" id="37b-bj-THy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLB-G5-lwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,6 +379,9 @@
                                 <state key="normal" title="PLAY">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectedLabel_Touch:" destination="078-Q0-PB5" eventType="touchUpInside" id="ti4-7f-88M"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14549741148948669" green="0.15208700299263" blue="0.19608399271965027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -369,13 +401,14 @@
                     </view>
                     <connections>
                         <outlet property="button_Bottom" destination="fld-Iz-64o" id="AOe-yJ-g66"/>
+                        <outlet property="button_Label" destination="G56-gX-wIY" id="QcN-lQ-IzM"/>
                         <outlet property="button_Middle" destination="R6m-Go-KpE" id="NeA-Hy-M8D"/>
                         <outlet property="button_Selected" destination="G2B-lX-XUH" id="qff-7B-ezN"/>
                         <outlet property="button_Top" destination="Sc4-ev-GQw" id="irT-gK-nuK"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="playView" id="7wb-a8-SJo"/>
-                        <segue destination="IEq-6i-JiE" kind="show" id="J1j-Iq-6rx"/>
-                        <segue destination="bBE-f1-19G" kind="show" id="gEm-UM-e78"/>
-                        <segue destination="tGU-MW-LOv" kind="show" id="Yiv-T7-LO2"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segue_MainMenuToPlay" id="7wb-a8-SJo"/>
+                        <segue destination="IEq-6i-JiE" kind="show" identifier="segue_MainMenuToSettings" id="J1j-Iq-6rx"/>
+                        <segue destination="bBE-f1-19G" kind="show" identifier="segue_MainMenuToRecords" id="gEm-UM-e78"/>
+                        <segue destination="tGU-MW-LOv" kind="show" identifier="segue_MainMenuToDifficult" id="Yiv-T7-LO2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLg-AR-2h9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +630,7 @@
         <image name="1497599525_cool" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ILC-ET-TAO"/>
-        <segue reference="dlh-b3-vFY"/>
+        <segue reference="7wb-a8-SJo"/>
+        <segue reference="37b-bj-THy"/>
     </inferredMetricsTieBreakers>
 </document>
