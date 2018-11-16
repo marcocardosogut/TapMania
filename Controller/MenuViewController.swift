@@ -37,10 +37,8 @@ class MenuViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private func formatButton(buttons: [UIButton])
-    {
-        for b in buttons
-        {
+    private func formatButton(buttons: [UIButton]) {
+        for b in buttons{
             b.layer.cornerRadius = 0.5 * b.frame.size.height
             b.layer.shadowColor = UIColor.black.cgColor
             b.layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -71,16 +69,13 @@ class MenuViewController: UIViewController {
     @IBAction func selected_Touch(_ sender: UIButton) {
         buttonPressAnimation(button: sender)
         changeMenuView()
-
     }
     
-    func changeMenuView()
-    {
+    func changeMenuView(){
         performSegue(withIdentifier: currentSelection.rawValue, sender: nil)
     }
     
-    func switchButton(_ sender: UIButton)
-    {
+    func switchButton(_ sender: UIButton){
         let image = button_Selected.currentImage
         let color = button_Selected.backgroundColor
         
@@ -91,8 +86,7 @@ class MenuViewController: UIViewController {
         sender.backgroundColor = color
     }
     
-    func updateCurrentSelection(_ sender: UIButton)
-    {
+    func updateCurrentSelection(_ sender: UIButton){
         switch sender.backgroundColor {
         case #colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1):
             currentSelection = .Records
@@ -107,8 +101,7 @@ class MenuViewController: UIViewController {
         }
     }
     
-    func updateLabel()
-    {
+    func updateLabel(){
         var labelText = ""
         switch currentSelection! {
         case .Difficult:
@@ -123,14 +116,4 @@ class MenuViewController: UIViewController {
         }
         button_Label.setTitle(labelText, for: .normal)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -15,11 +15,8 @@ class GameOverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //b.layer.cornerRadius = 0.5 * b.frame.size.height
         button_Menu.layer.cornerRadius = 0.5 * button_Menu.frame.size.height
         button_PlayAgain.layer.cornerRadius = 0.5 * button_PlayAgain.frame.size.height
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func returnMainMenu(_ sender: Any) {
@@ -29,14 +26,4 @@ class GameOverViewController: UIViewController {
     @IBAction func returnNewGame(_ sender: Any) {
         performSegue(withIdentifier: "segue_GameOverToPlay", sender: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

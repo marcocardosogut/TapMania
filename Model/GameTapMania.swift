@@ -8,8 +8,7 @@
 
 import Foundation
 
-enum BallValue :Int
-{
+enum BallValue :Int {
     case Empty = -1
     case Green = 0
     case Red = 1
@@ -17,73 +16,60 @@ enum BallValue :Int
     case Blue = 3
 }
 
-enum Difficulty
-{
-    case Easy
-    case Medium
-    case Hard
-    case Unfair
+enum Difficulty : Int {
+    case Easy = 0
+    case Medium = 1
+    case Hard = 2
+    case Unfair = 3
 }
 
-class GameTapMania
-{
+class GameTapMania {
     private var score :Int
     private var _endOfGame = false
     private let _difficult : Difficulty
     private var currentConf : [BallValue]
-    init(difficult: Difficulty)
-    {
+    
+    init(difficult: Difficulty){
         _difficult = difficult
         score = 0
         currentConf = [BallValue.Blue,BallValue.Green,BallValue.Red,BallValue.Orange,BallValue.Blue]
         changeCurrentConf()
     }
     
-    public func getScore()->Int
-    {
+    public func getScore()->Int {
         return score;
     }
     
-    public func getCurrentConf()->[BallValue]
-    {
+    public func getCurrentConf()->[BallValue] {
         return currentConf
     }
     
-    public func evaluate(played : BallValue) ->Bool
-    {
-        if(_endOfGame)
-        {
+    public func evaluate(played : BallValue) ->Bool {
+        if(_endOfGame) {
             return false
         }
-        if(played == currentConf[4])
-        {
+        if(played == currentConf[4]) {
             increaseScore()
             return true
         }
-        else
-        {
+        else{
             decreaseScore()
             return false
         }
     }
     
-    private func increaseScore()
-    {
+    private func increaseScore() {
         score = score + 1;
     }
     
-    private func decreaseScore()
-    {
-        if score > 0
-        {
+    private func decreaseScore() {
+        if score > 0 {
             score = score - 1
         }
     }
     
-    public func changeCurrentConf()
-    {
-        if _endOfGame
-        {
+    public func changeCurrentConf() {
+        if _endOfGame {
             return
         }
         switch _difficult {
@@ -98,34 +84,27 @@ class GameTapMania
         }
     }
     
-    private func changeConfProbapility(probrability: Int)
-    {
+    private func changeConfProbapility(probrability: Int) {
         let random = Int.random(in: 0..<10)
-        if random>=probrability
-        {
+        if random>=probrability {
             currentConf[4] = currentConf.prefix(4).randomElement()!
-        }
-        else
-        {
+        } else {
             var newConf = currentConf.prefix(4)
             newConf.shuffle()
             newConf.append(newConf.randomElement()!)
             var i = 0
-            for t in newConf
-            {
+            for t in newConf {
                 currentConf[i] = t
                 i += 1
             }
         }
     }
     
-    public func endOfGame()
-    {
+    public func endOfGame() {
         _endOfGame = true
     }
     
-    public func gameOver() -> Bool
-    {
+    public func gameOver() -> Bool {
         return _endOfGame
     }
 }

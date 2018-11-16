@@ -49,8 +49,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func loadDefaults()
-    {
+    func loadDefaults() {
         if (defaults.value(forKey: "Setting_Sound") == nil){
             defaults.set(true, forKey: "Setting_Sound")
             defaults.synchronize()
@@ -62,13 +61,12 @@ class SettingsViewController: UIViewController {
         updateButtons()
     }
     
-    func updateButtons()
-    {
+    func updateButtons() {
         if (!(defaults.value(forKey: "Setting_Sound") as! Bool)){
             button_Sound.alpha = 0.5
         }
         if (!(defaults.value(forKey: "Setting_Vibration") as! Bool)){
-            button_Sound.alpha = 0.5
+            button_Vibration.alpha = 0.5
         }
     }
 }
