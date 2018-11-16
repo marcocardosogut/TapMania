@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tGU-MW-LOv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tyg-GL-PHc">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,6 +44,9 @@
                                 <state key="normal" title="SOUND">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="settingTouch:" destination="IEq-6i-JiE" eventType="touchUpInside" id="TSO-h7-Rje"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCK-W2-new">
                                 <rect key="frame" x="255.66666666666663" y="159" width="301" height="79"/>
@@ -55,17 +58,9 @@
                                 <state key="normal" title="VIBRATION">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCh-sy-MGS">
-                                <rect key="frame" x="213" y="278" width="386" height="79"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="qX6-4j-G2U"/>
-                                    <constraint firstAttribute="width" constant="386" id="sxf-3w-na1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="56"/>
-                                <state key="normal" title="CLEAR SCORE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <connections>
+                                    <action selector="settingTouch:" destination="IEq-6i-JiE" eventType="touchUpInside" id="lA6-9I-x5q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14549741148948669" green="0.15208700299263" blue="0.19608399271965027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -75,8 +70,6 @@
                             <constraint firstItem="iCK-W2-new" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="Ggd-n9-pxv"/>
                             <constraint firstItem="dVz-8V-OiB" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="IPe-7g-KmB"/>
                             <constraint firstItem="cm2-DD-W8T" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="O0u-Df-0dR"/>
-                            <constraint firstItem="nCh-sy-MGS" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="Rf8-bB-BUr"/>
-                            <constraint firstItem="nCh-sy-MGS" firstAttribute="top" secondItem="iCK-W2-new" secondAttribute="bottom" constant="40" id="geJ-Vh-Ue2"/>
                             <constraint firstItem="iCK-W2-new" firstAttribute="top" secondItem="dVz-8V-OiB" secondAttribute="bottom" constant="40" id="sQU-qM-Mj8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RSd-pI-Zup"/>
@@ -84,6 +77,8 @@
                     <connections>
                         <outlet property="button_Back" destination="QsI-CN-R8w" id="6si-n4-IPo"/>
                         <outlet property="button_Background" destination="cm2-DD-W8T" id="FQv-Td-b6z"/>
+                        <outlet property="button_Sound" destination="dVz-8V-OiB" id="N8P-nl-0sc"/>
+                        <outlet property="button_Vibration" destination="iCK-W2-new" id="82S-G5-nX2"/>
                         <segue destination="078-Q0-PB5" kind="show" identifier="segue_SettingsToMainMenu" id="dlh-b3-vFY"/>
                     </connections>
                 </viewController>
@@ -415,10 +410,10 @@
             </objects>
             <point key="canvasLocation" x="-668.7192118226601" y="48.799999999999997"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,7 +528,7 @@
                         <outlet property="button_TR" destination="gx8-fr-4e0" id="xvE-RG-v3w"/>
                         <outlet property="label_Score" destination="Bk8-Sk-QNZ" id="DWD-79-IXu"/>
                         <outlet property="label_Timer" destination="AsZ-Ot-56U" id="ay0-AZ-k8i"/>
-                        <segue destination="Tyg-GL-PHc" kind="show" id="YOh-xo-dPC"/>
+                        <segue destination="Tyg-GL-PHc" kind="show" identifier="segue_PlayToGameOver" id="YOh-xo-dPC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -568,6 +563,9 @@
                                 <state key="normal" title="PLAY AGAIN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="returnNewGame:" destination="Tyg-GL-PHc" eventType="touchUpInside" id="KNu-OJ-hcn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnA-jQ-y9H">
                                 <rect key="frame" x="324" y="190" width="164" height="41"/>
@@ -580,6 +578,9 @@
                                 <state key="normal" title="MENU">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="returnMainMenu:" destination="Tyg-GL-PHc" eventType="touchUpInside" id="paG-WC-aJj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW RECORD!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktn-Gu-j0G">
                                 <rect key="frame" x="286" y="97" width="240" height="80"/>
@@ -609,8 +610,8 @@
                         <outlet property="button_Menu" destination="EnA-jQ-y9H" id="gJs-TH-gp1"/>
                         <outlet property="button_PlayAgain" destination="mRV-W6-BIK" id="gPR-fD-EhL"/>
                         <outlet property="label_NewRecord" destination="Ktn-Gu-j0G" id="ivD-Ly-p3I"/>
-                        <segue destination="078-Q0-PB5" kind="show" id="eXl-Gr-DXk"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="ILC-ET-TAO"/>
+                        <segue destination="078-Q0-PB5" kind="show" identifier="segue_GameOverToMainMenu" id="eXl-Gr-DXk"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="segue_GameOverToPlay" id="ILC-ET-TAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEi-of-yxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,7 +631,7 @@
         <image name="1497599525_cool" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7wb-a8-SJo"/>
-        <segue reference="37b-bj-THy"/>
+        <segue reference="ILC-ET-TAO"/>
+        <segue reference="dlh-b3-vFY"/>
     </inferredMetricsTieBreakers>
 </document>

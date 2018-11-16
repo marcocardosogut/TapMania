@@ -22,7 +22,13 @@ class GameOverViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func returnMainMenu(_ sender: Any) {
+        performSegue(withIdentifier: "segue_GameOverToMainMenu", sender: nil)
+    }
+    
+    @IBAction func returnNewGame(_ sender: Any) {
+        performSegue(withIdentifier: "segue_GameOverToPlay", sender: nil)
+    }
     /*
     // MARK: - Navigation
 

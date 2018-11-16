@@ -95,7 +95,7 @@ class MenuViewController: UIViewController {
     {
         switch sender.backgroundColor {
         case #colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1):
-            currentSelection = .Settings
+            currentSelection = .Records
         case #colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1):
             currentSelection = .Play
         case #colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1):

@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     var gameController = GameTapMania(difficult: Difficulty.Unfair)
     let colors = [#colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1),#colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1),#colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1),#colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)]
     var tick = 60
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
     //Create timer
     private func runTimer()
     {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(GameViewController.updateTimer), userInfo: nil, repeats: true)
     }
     
     //Update Score label
@@ -153,8 +153,7 @@ class ViewController: UIViewController {
         {
             gameController.endOfGame()
             timer!.invalidate()
-            /* let next:GameOverViewController = storyboard?.instantiateViewController(withIdentifier: "GameOverViewController") as! GameOverViewController
-            self.navigationController?.pushViewController(next, animated: true) */
+            performSegue(withIdentifier: "segue_PlayToGameOver", sender: nil)
         }
         
     }
