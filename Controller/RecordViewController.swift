@@ -45,13 +45,8 @@ class RecordViewController: UIViewController {
     }
     
     func loadDefaults(key : String){
-        var score = 0
-        if (defaults.value(forKey: key) != nil){
-            score = defaults.value(forKey: key) as! Int
-        }else{
-            defaults.set(score, forKey: key)
-            defaults.synchronize()
-        }
+        let score = defaults.value(forKey: key) as! Int
+        
         switch key {
         case "Score_Easy":
             updateLabelScore(label: label_EasyScore, score: score)

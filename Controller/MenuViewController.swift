@@ -24,9 +24,12 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var button_Label: UIButton!
     //********* END VISUALS *********
     var currentSelection : gameMenu!
+    let defaults = UserDefaults.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadDefaults()
+        
         button_Bottom.backgroundColor = #colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1)
         button_Selected.backgroundColor = #colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1)
         button_Top.backgroundColor = #colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)
@@ -35,6 +38,31 @@ class MenuViewController: UIViewController {
         let buttonContainer = [button_Top,button_Bottom,button_Middle,button_Selected]
         formatButton(buttons: buttonContainer as! [UIButton])
         // Do any additional setup after loading the view.
+    }
+    
+    func loadDefaults(){
+        if (defaults.value(forKey: "Setting_Sound") == nil){
+            defaults.set(true, forKey: "Setting_Sound")
+        }
+        if (defaults.value(forKey: "Setting_Vibration") == nil){
+            defaults.set(true, forKey: "Setting_Vibration")
+        }
+        if (defaults.value(forKey: "Difficult") == nil){
+            defaults.set(Difficulty.Easy.rawValue, forKey: "Difficult")
+        }
+        if (defaults.value(forKey: "Score_Easy") == nil){
+            defaults.set(0, forKey: "Score_Easy")
+        }
+        if (defaults.value(forKey: "Score_Medium") == nil){
+            defaults.set(0, forKey: "Score_Medium")
+        }
+        if (defaults.value(forKey: "Score_Hard") == nil){
+            defaults.set(0, forKey: "Score_Hard")
+        }
+        if (defaults.value(forKey: "Score_Unfair") == nil){
+            defaults.set(0, forKey: "Score_Unfair")
+        }
+        defaults.synchronize()
     }
     
     private func formatButton(buttons: [UIButton]) {

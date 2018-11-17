@@ -67,14 +67,7 @@ class DifficultViewController: UIViewController {
     }
     
     func loadDefaults(){
-        var defaultDifficult  = Difficulty.Easy
-        if (defaults.value(forKey: "Difficult") != nil){
-            defaultDifficult = Difficulty(rawValue: (defaults.value(forKey: "Difficult") as! Int))!
-        }else{
-            defaults.set(defaultDifficult.rawValue, forKey: "Difficult")
-            defaults.synchronize()
-        }
-        difficult = defaultDifficult
+        difficult = Difficulty(rawValue: (defaults.value(forKey: "Difficult") as! Int))!
         updateDifficultView()
     }
     

@@ -36,6 +36,10 @@ class GameTapMania {
         changeCurrentConf()
     }
     
+    public func getDifficult() -> Difficulty{
+        return _difficult
+    }
+    
     public func getScore()->Int {
         return score;
     }

@@ -17,7 +17,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDefaults()
+        updateButtons()
+        //loadDefaults()
         
         button_Background.layer.cornerRadius = 0.5 * button_Background.frame.size.height
         button_Background.layer.shadowColor = UIColor.black.cgColor
@@ -47,18 +48,6 @@ class SettingsViewController: UIViewController {
         }else{
             sender.alpha = 0.5
         }
-    }
-    
-    func loadDefaults() {
-        if (defaults.value(forKey: "Setting_Sound") == nil){
-            defaults.set(true, forKey: "Setting_Sound")
-            defaults.synchronize()
-        }
-        if (defaults.value(forKey: "Setting_Vibration") == nil){
-            defaults.set(true, forKey: "Setting_Vibration")
-            defaults.synchronize()
-        }
-        updateButtons()
     }
     
     func updateButtons() {

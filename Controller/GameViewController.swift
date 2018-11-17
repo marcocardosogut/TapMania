@@ -10,7 +10,9 @@ import UIKit
 import AudioToolbox
 
 class GameViewController: UIViewController {
-    var gameController = GameTapMania(difficult: Difficulty.Unfair)
+    var gameModel : GameTapMania!
+    var defaults : UserDefaults = UserDefaults.init()
+    
     let colors = [#colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1),#colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1),#colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1),#colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)]
     var tick = 60
     var timer : Timer?
@@ -28,17 +30,43 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadGame()
+        
         buttonContainer = [button_TL,button_BL,button_TR,button_BR,button_C]
         formatButton(buttons: buttonContainer)
         setButtonColors()
         runTimer()
     }
     
+    func loadGame(){
+        let dificulty = Difficulty(rawValue: defaults.value(forKey: "Difficult") as! Int)
+        gameModel = GameTapMania(difficult: dificulty!)
+    }
+    func updateScoreValue(){
+        var scoreKey = ""
+        switch gameModel.getDifficult() {
+        case .Easy:
+            scoreKey = "Score_Easy"
+        case .Medium:
+            scoreKey = "Score_Medium"
+        case .Hard:
+            scoreKey = "Score_Hard"
+        case .Unfair:
+            scoreKey = "Score_Unfair"
+        }
+        let stablishedScore = defaults.value(forKey: scoreKey) as! Int
+        if (stablishedScore < gameModel.getScore()){
+            defaults.set(gameModel.getScore(), forKey: scoreKey)
+            defaults.set(true, forKey: "NewRecord")
+            defaults.synchronize()
+        }
+    }
+    
     //********* ACTIONS *********
     @IBAction func button_Press(_ sender: UIButton) {
         let t = convertColorToEnumValue(color: sender.backgroundColor!)
-        produceVibration(evaluation: gameController.evaluate(played: t))
-        updateScore()
+        produceVibration(evaluation: gameModel.evaluate(played: t))
+        updateScoreLabel()
         buttonPressAnimation(button: sender)
     }
     //********* END ACTIONS *********
@@ -83,7 +111,7 @@ class GameViewController: UIViewController {
     //Set Button from GameController EnumValues
     private func setButtonColors() {
         var i = 0
-        for b in gameController.getCurrentConf(){
+        for b in gameModel.getCurrentConf(){
             buttonContainer[i].backgroundColor = convertEnumValueToColor(enumValue: b)
             i += 1
         }
@@ -123,8 +151,8 @@ class GameViewController: UIViewController {
     }
     
     //Update Score label
-    private func updateScore(){
-        label_Score.text = String(gameController.getScore())
+    private func updateScoreLabel(){
+        label_Score.text = String(gameModel.getScore())
     }
     //Update Timer Label
     @objc private func updateTimer() {
@@ -132,14 +160,19 @@ class GameViewController: UIViewController {
         tick = tick - 1
         
         if (tick % 3 == 0) {
-            gameController.changeCurrentConf()
+            gameModel.changeCurrentConf()
             setButtonColors()
         }
         if (tick == -1) {
-            gameController.endOfGame()
+            gameModel.endOfGame()
             timer!.invalidate()
-            performSegue(withIdentifier: "segue_PlayToGameOver", sender: nil)
+            changeView()
         }
+    }
+    
+    private func changeView(){
+        updateScoreValue()
+        performSegue(withIdentifier: "segue_PlayToGameOver", sender: nil)
     }
     
     //_______________________END_VISUAL
