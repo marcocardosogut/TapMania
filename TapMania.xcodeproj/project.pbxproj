@@ -18,6 +18,7 @@
 		A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D7108218E09BE009DDC97 /* DifficultViewController.swift */; };
 		A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710A218E09D1009DDC97 /* RecordViewController.swift */; };
 		A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710C218E09FF009DDC97 /* MenuViewController.swift */; };
+		A8DE0695219FA13100F5295F /* ModelatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE0694219FA13100F5295F /* ModelatorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A85D7108218E09BE009DDC97 /* DifficultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultViewController.swift; sourceTree = "<group>"; };
 		A85D710A218E09D1009DDC97 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		A85D710C218E09FF009DDC97 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A8DE0694219FA13100F5295F /* ModelatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelatorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				A85D7108218E09BE009DDC97 /* DifficultViewController.swift */,
 				A85D710A218E09D1009DDC97 /* RecordViewController.swift */,
 				A85D710C218E09FF009DDC97 /* MenuViewController.swift */,
+				A8DE0694219FA13100F5295F /* ModelatorController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */,
 				A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */,
 				A85D7107218E09A8009DDC97 /* SettingsViewController.swift in Sources */,
+				A8DE0695219FA13100F5295F /* ModelatorController.swift in Sources */,
 				A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */,
 				A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */,
 			);

@@ -36,7 +36,7 @@ class MenuViewController: UIViewController {
         button_Middle.backgroundColor = #colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1)
         currentSelection = gameMenu.Play
         let buttonContainer = [button_Top,button_Bottom,button_Middle,button_Selected]
-        formatButton(buttons: buttonContainer as! [UIButton])
+        Modelator.formatButton(buttons: buttonContainer as! [UIButton])
         // Do any additional setup after loading the view.
     }
     
@@ -65,29 +65,11 @@ class MenuViewController: UIViewController {
         defaults.synchronize()
     }
     
-    private func formatButton(buttons: [UIButton]) {
-        for b in buttons{
-            b.layer.cornerRadius = 0.5 * b.frame.size.height
-            b.layer.shadowColor = UIColor.black.cgColor
-            b.layer.shadowOffset = CGSize(width: 5, height: 5)
-            b.layer.shadowRadius = 5
-            b.layer.shadowOpacity = 1.0
-        }
-    }
-    
     @IBAction func button_ReplaceSelection(_ sender: UIButton) {
-        buttonPressAnimation(button: sender)
+        Modelator.buttonPressAnimation(button: sender)
         updateCurrentSelection(sender)
         switchButton(sender)
         updateLabel()
-    }
-    
-    private func buttonPressAnimation (button: UIButton)
-    {
-        UIButton.animate(withDuration: 0.1,
-                         animations:{button.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)},
-                         completion:{ finish in UIButton.animate(withDuration: 0.1,
-                                                                 animations: {button.transform = CGAffineTransform.identity})})
     }
     
     @IBAction func selectedLabel_Touch(_ sender: Any) {
@@ -95,7 +77,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func selected_Touch(_ sender: UIButton) {
-        buttonPressAnimation(button: sender)
+        Modelator.buttonPressAnimation(button: sender)
         changeMenuView()
     }
     

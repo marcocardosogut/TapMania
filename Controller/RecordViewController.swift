@@ -22,14 +22,8 @@ class RecordViewController: UIViewController {
         super.viewDidLoad()
         loadDefaults()
         
-        button_Background.layer.cornerRadius = 0.5 * button_Background.frame.size.height
-        button_Background.layer.shadowColor = UIColor.black.cgColor
-        button_Background.layer.shadowOffset = CGSize(width: 5, height: 5)
-        button_Background.layer.shadowRadius = 5
-        button_Background.layer.shadowOpacity = 1.0
-        let height = UIScreen.main.bounds.height
-        let widht  = UIScreen.main.bounds.width
-        button_Back.frame = CGRect(x: 0, y: 0, width: widht, height: height)
+        Modelator.formatButton(buttons: [button_Background])
+        Modelator.formatButtonBack(button: button_Back)
         // Do any additional setup after loading the view.
     }
     
