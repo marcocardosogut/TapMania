@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 
 public class Modelator {
-    
+    static var musicPlayer : AVAudioPlayer!
+    static var tapPlayer : AVAudioPlayer!
     //Convert Color to EnumValue
     static func convertColorToEnumValue(color: UIColor)->BallValue {
         switch color {
@@ -67,6 +69,25 @@ public class Modelator {
                          animations:{button.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)},
                          completion:{ finish in UIButton.animate(withDuration: 0.01,
                                                                  animations: {button.transform = CGAffineTransform.identity})})
+        playTap(resource: "tap", type: "wav")
     }
     
+    static func playMusic(resource :String, type: String){
+        do {
+            musicPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: resource, ofType: type)!))
+            musicPlayer.prepareToPlay()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        musicPlayer.play()
+    }
+    static func playTap(resource :String, type: String){
+        do {
+            tapPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: resource, ofType: type)!))
+            tapPlayer.prepareToPlay()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        tapPlayer.play()
+    }
 }

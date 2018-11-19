@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     
     let colors = [#colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1),#colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1),#colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1),#colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)]
     var tick = 60
+    var refreshInterval = 3
     var timer : Timer?
     var buttonContainer : [UIButton] = []
     
@@ -41,7 +42,13 @@ class GameViewController: UIViewController {
     func loadGame(){
         let dificulty = Difficulty(rawValue: defaults.value(forKey: "Difficult") as! Int)
         gameModel = GameTapMania(difficult: dificulty!)
+        if(dificulty == Difficulty.Unfair){
+            refreshInterval = 4
+        }else if(dificulty == Difficulty.Hard ){
+            refreshInterval = 2
+        }
     }
+    
     func updateScoreValue(){
         var scoreKey = ""
         switch gameModel.getDifficult() {
@@ -67,6 +74,11 @@ class GameViewController: UIViewController {
         produceVibration(evaluation: gameModel.evaluate(played: t))
         updateScoreLabel()
         Modelator.buttonPressAnimation(button: sender)
+        
+        if (gameModel.getDifficult()==Difficulty.Unfair){
+            gameModel.changeCurrentConf()
+            setButtonColors()
+        }
     }
     
     //Set Button from GameController EnumValues
@@ -98,7 +110,7 @@ class GameViewController: UIViewController {
         label_Timer.text = String(tick)
         tick = tick - 1
         
-        if (tick % 3 == 0) {
+        if (tick % refreshInterval == 0) {
             gameModel.changeCurrentConf()
             setButtonColors()
         }

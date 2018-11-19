@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 enum gameMenu : String {
     case Play = "segue_MainMenuToPlay"
@@ -29,6 +30,8 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults()
+        
+        Modelator.playMusic(resource: "music", type: "mp3")
         
         button_Bottom.backgroundColor = #colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1)
         button_Selected.backgroundColor = #colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1)

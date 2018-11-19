@@ -18,6 +18,8 @@
 		A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D7108218E09BE009DDC97 /* DifficultViewController.swift */; };
 		A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710A218E09D1009DDC97 /* RecordViewController.swift */; };
 		A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710C218E09FF009DDC97 /* MenuViewController.swift */; };
+		A8C734DE21A25043006FBB29 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8C734DC21A25042006FBB29 /* music.mp3 */; };
+		A8C734DF21A25043006FBB29 /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8C734DD21A25042006FBB29 /* tap.wav */; };
 		A8DE0695219FA13100F5295F /* ModelatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE0694219FA13100F5295F /* ModelatorController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		A85D7108218E09BE009DDC97 /* DifficultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultViewController.swift; sourceTree = "<group>"; };
 		A85D710A218E09D1009DDC97 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		A85D710C218E09FF009DDC97 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A8C734DC21A25042006FBB29 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
+		A8C734DD21A25042006FBB29 /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		A8DE0694219FA13100F5295F /* ModelatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelatorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +56,7 @@
 		A85D70D7218CB73B009DDC97 = {
 			isa = PBXGroup;
 			children = (
+				A8C734DB21A25020006FBB29 /* Audio */,
 				A85D70F7218CB7BA009DDC97 /* Controller */,
 				A85D70F6218CB7B5009DDC97 /* View */,
 				A85D70F5218CB7AC009DDC97 /* Model */,
@@ -107,6 +112,15 @@
 				A8DE0694219FA13100F5295F /* ModelatorController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A8C734DB21A25020006FBB29 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				A8C734DC21A25042006FBB29 /* music.mp3 */,
+				A8C734DD21A25042006FBB29 /* tap.wav */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,9 +181,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8C734DE21A25043006FBB29 /* music.mp3 in Resources */,
 				A85D70EE218CB73D009DDC97 /* LaunchScreen.storyboard in Resources */,
 				A85D70EB218CB73D009DDC97 /* Assets.xcassets in Resources */,
 				A85D70E9218CB73B009DDC97 /* Main.storyboard in Resources */,
+				A8C734DF21A25043006FBB29 /* tap.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
