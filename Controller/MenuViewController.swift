@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var button_Selected: UIButton!
     @IBOutlet weak var button_Top: UIButton!
     @IBOutlet weak var button_Middle: UIButton!
-    @IBOutlet weak var button_Label: UIButton!
+    @IBOutlet weak var button_SelectedOption: UIButton!
     //********* END VISUALS *********
     var currentSelection : gameMenu!
     let defaults = UserDefaults.init()
@@ -34,8 +34,12 @@ class MenuViewController: UIViewController {
         currentSelection = gameMenu.Play
         let buttonContainer = [button_Top,button_Bottom,button_Middle,button_Selected]
         Modelator.formatButton(buttons: buttonContainer as! [UIButton])
+        
+        //Only for devices with small displays
         if(Modelator.detectHomeButtonModel()){
             button_Bottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            button_SelectedOption.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: UIFont.Weight.heavy)
+            
         }
         // Do any additional setup after loading the view.
     }
@@ -124,6 +128,6 @@ class MenuViewController: UIViewController {
             labelText = "SETTINGS"
             break
         }
-        button_Label.setTitle(labelText, for: .normal)
+        button_SelectedOption.setTitle(labelText, for: .normal)
     }
 }

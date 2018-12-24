@@ -34,43 +34,45 @@
                                     <constraint firstAttribute="height" constant="500" id="tmj-le-Ype"/>
                                 </constraints>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVz-8V-OiB">
-                                <rect key="frame" x="183.5" y="80" width="201" height="79"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r53-8P-Du0">
+                                <rect key="frame" x="119.5" y="63" width="329" height="194"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVz-8V-OiB">
+                                        <rect key="frame" x="58" y="0.0" width="201" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="56"/>
+                                        <state key="normal" title="SOUND">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="settingTouch:" destination="IEq-6i-JiE" eventType="touchUpInside" id="TSO-h7-Rje"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCK-W2-new">
+                                        <rect key="frame" x="8" y="107" width="301" height="79"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="56"/>
+                                        <state key="normal" title="VIBRATION">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="settingTouch:" destination="IEq-6i-JiE" eventType="touchUpInside" id="lA6-9I-x5q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.45873260498046875" green="0.82801735401153564" blue="0.43914294242858887" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="AzP-BQ-iPw"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="iCy-Wd-jS6"/>
+                                    <constraint firstAttribute="height" constant="194" id="KsL-pc-Ern"/>
+                                    <constraint firstAttribute="width" constant="329" id="iHQ-mQ-BpJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="56"/>
-                                <state key="normal" title="SOUND">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="settingTouch:" destination="IEq-6i-JiE" eventType="touchUpInside" id="TSO-h7-Rje"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCK-W2-new">
-                                <rect key="frame" x="133.5" y="199" width="301" height="79"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="301" id="02r-q8-hu7"/>
-                                    <constraint firstAttribute="height" constant="79" id="z4V-d9-uLs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="56"/>
-                                <state key="normal" title="VIBRATION">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="settingTouch:" destination="IEq-6i-JiE" eventType="touchUpInside" id="lA6-9I-x5q"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14549741148948669" green="0.15208700299263" blue="0.19608399271965027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="dVz-8V-OiB" firstAttribute="top" secondItem="RSd-pI-Zup" secondAttribute="top" constant="80" id="68F-JT-Qgx"/>
+                            <constraint firstItem="r53-8P-Du0" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="Cdz-9G-Nle"/>
                             <constraint firstItem="cm2-DD-W8T" firstAttribute="centerY" secondItem="ecg-W7-eLX" secondAttribute="centerY" id="FkQ-gh-AUc"/>
-                            <constraint firstItem="iCK-W2-new" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="Ggd-n9-pxv"/>
-                            <constraint firstItem="dVz-8V-OiB" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="IPe-7g-KmB"/>
                             <constraint firstItem="cm2-DD-W8T" firstAttribute="centerX" secondItem="ecg-W7-eLX" secondAttribute="centerX" id="O0u-Df-0dR"/>
-                            <constraint firstItem="iCK-W2-new" firstAttribute="top" secondItem="dVz-8V-OiB" secondAttribute="bottom" constant="40" id="sQU-qM-Mj8"/>
+                            <constraint firstItem="r53-8P-Du0" firstAttribute="centerY" secondItem="ecg-W7-eLX" secondAttribute="centerY" id="k5B-Fj-Ngj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RSd-pI-Zup"/>
                     </view>
@@ -84,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udf-Ga-b19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1636" y="1426"/>
+            <point key="canvasLocation" x="-1636.2676056338028" y="1425"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="JUN-6R-dcg">
@@ -569,9 +571,9 @@
                     </view>
                     <connections>
                         <outlet property="button_Bottom" destination="fld-Iz-64o" id="AOe-yJ-g66"/>
-                        <outlet property="button_Label" destination="G56-gX-wIY" id="QcN-lQ-IzM"/>
                         <outlet property="button_Middle" destination="R6m-Go-KpE" id="NeA-Hy-M8D"/>
                         <outlet property="button_Selected" destination="G2B-lX-XUH" id="qff-7B-ezN"/>
+                        <outlet property="button_SelectedOption" destination="G56-gX-wIY" id="QcN-lQ-IzM"/>
                         <outlet property="button_Top" destination="Sc4-ev-GQw" id="irT-gK-nuK"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segue_MainMenuToPlay" id="7wb-a8-SJo"/>
                         <segue destination="IEq-6i-JiE" kind="show" identifier="segue_MainMenuToSettings" id="J1j-Iq-6rx"/>
@@ -803,6 +805,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7wb-a8-SJo"/>
-        <segue reference="37b-bj-THy"/>
+        <segue reference="dlh-b3-vFY"/>
     </inferredMetricsTieBreakers>
 </document>
