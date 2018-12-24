@@ -17,6 +17,8 @@ class GameOverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Modelator.playAudio(player: .Menu)
         updateNewRecordMenu()
         button_Menu.layer.cornerRadius = 0.5 * button_Menu.frame.size.height
         button_PlayAgain.layer.cornerRadius = 0.5 * button_PlayAgain.frame.size.height

@@ -9,13 +9,6 @@
 import UIKit
 import AVFoundation
 
-enum gameMenu : String {
-    case Play = "segue_MainMenuToPlay"
-    case Settings = "segue_MainMenuToSettings"
-    case Records = "segue_MainMenuToRecords"
-    case Difficult = "segue_MainMenuToDifficult"
-}
-
 class MenuViewController: UIViewController {
     //********* VISUALS *********
     @IBOutlet weak var button_Bottom: UIButton!
@@ -30,8 +23,9 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults()
+        Modelator.playAudio(player: audioPlayer.Menu )
         
-        Modelator.playMusic(resource: "music", type: "mp3")
+        print(UIDevice.current.name)
         
         button_Bottom.backgroundColor = #colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1)
         button_Selected.backgroundColor = #colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1)
@@ -40,6 +34,9 @@ class MenuViewController: UIViewController {
         currentSelection = gameMenu.Play
         let buttonContainer = [button_Top,button_Bottom,button_Middle,button_Selected]
         Modelator.formatButton(buttons: buttonContainer as! [UIButton])
+        if(Modelator.detectHomeButtonModel()){
+            button_Bottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -69,7 +66,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func button_ReplaceSelection(_ sender: UIButton) {
-        Modelator.buttonPressAnimation(button: sender)
+        Modelator.buttonPressAnimation(button: sender, playTap: true)
         updateCurrentSelection(sender)
         switchButton(sender)
         updateLabel()
@@ -80,7 +77,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func selected_Touch(_ sender: UIButton) {
-        Modelator.buttonPressAnimation(button: sender)
+        Modelator.buttonPressAnimation(button: sender, playTap: true)
         changeMenuView()
     }
     

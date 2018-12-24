@@ -15,18 +15,25 @@ class DifficultViewController: UIViewController {
     @IBOutlet weak var view_Easy: UIView!
     @IBOutlet weak var view_Medium: UIView!
     @IBOutlet weak var view_Hard: UIView!
-    @IBOutlet weak var view_Insane: UIView!
+    @IBOutlet weak var view_Unfair: UIView!
     var viewStore : [UIView]!
     let defaults = UserDefaults.init()
     var difficult : Difficulty!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewStore = [view_Easy, view_Medium, view_Hard, view_Insane]
+        viewStore = [view_Easy, view_Medium, view_Hard, view_Unfair]
         loadDefaults()
         
         Modelator.formatButton(buttons: [button_Background])
         Modelator.formatButtonBack(button: button_Back)
+        
+        if(UIDevice.current.name.contains("SE") || UIDevice.current.name.contains("5")){
+             view_Easy.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+            view_Medium.topAnchor.constraint(equalTo: view_Easy.bottomAnchor).isActive = true
+            view_Hard.topAnchor.constraint(equalTo: view_Medium.bottomAnchor).isActive = true
+            view_Unfair.topAnchor.constraint(equalTo: view_Hard.bottomAnchor).isActive = true
+        }
     }
     
     @IBAction func difficultChange(_ sender: UIButton) {

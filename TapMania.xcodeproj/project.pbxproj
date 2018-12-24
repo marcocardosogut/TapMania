@@ -18,8 +18,10 @@
 		A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D7108218E09BE009DDC97 /* DifficultViewController.swift */; };
 		A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710A218E09D1009DDC97 /* RecordViewController.swift */; };
 		A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D710C218E09FF009DDC97 /* MenuViewController.swift */; };
-		A8C734DE21A25043006FBB29 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8C734DC21A25042006FBB29 /* music.mp3 */; };
 		A8C734DF21A25043006FBB29 /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8C734DD21A25042006FBB29 /* tap.wav */; };
+		A8C734E121A30F7B006FBB29 /* inGameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8C734E021A30F7B006FBB29 /* inGameMusic.mp3 */; };
+		A8C734E321A31241006FBB29 /* EnumModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C734E221A31241006FBB29 /* EnumModels.swift */; };
+		A8C734E521A31685006FBB29 /* menuMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8C734E421A31685006FBB29 /* menuMusic.wav */; };
 		A8DE0695219FA13100F5295F /* ModelatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE0694219FA13100F5295F /* ModelatorController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +39,10 @@
 		A85D7108218E09BE009DDC97 /* DifficultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultViewController.swift; sourceTree = "<group>"; };
 		A85D710A218E09D1009DDC97 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		A85D710C218E09FF009DDC97 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		A8C734DC21A25042006FBB29 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		A8C734DD21A25042006FBB29 /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
+		A8C734E021A30F7B006FBB29 /* inGameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inGameMusic.mp3; sourceTree = "<group>"; };
+		A8C734E221A31241006FBB29 /* EnumModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumModels.swift; sourceTree = "<group>"; };
+		A8C734E421A31685006FBB29 /* menuMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = menuMusic.wav; sourceTree = "<group>"; };
 		A8DE0694219FA13100F5295F /* ModelatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelatorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 				A85D710A218E09D1009DDC97 /* RecordViewController.swift */,
 				A85D710C218E09FF009DDC97 /* MenuViewController.swift */,
 				A8DE0694219FA13100F5295F /* ModelatorController.swift */,
+				A8C734E221A31241006FBB29 /* EnumModels.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,7 +122,8 @@
 		A8C734DB21A25020006FBB29 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				A8C734DC21A25042006FBB29 /* music.mp3 */,
+				A8C734E421A31685006FBB29 /* menuMusic.wav */,
+				A8C734E021A30F7B006FBB29 /* inGameMusic.mp3 */,
 				A8C734DD21A25042006FBB29 /* tap.wav */,
 			);
 			path = Audio;
@@ -181,11 +187,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8C734DE21A25043006FBB29 /* music.mp3 in Resources */,
 				A85D70EE218CB73D009DDC97 /* LaunchScreen.storyboard in Resources */,
+				A8C734E521A31685006FBB29 /* menuMusic.wav in Resources */,
 				A85D70EB218CB73D009DDC97 /* Assets.xcassets in Resources */,
 				A85D70E9218CB73B009DDC97 /* Main.storyboard in Resources */,
 				A8C734DF21A25043006FBB29 /* tap.wav in Resources */,
+				A8C734E121A30F7B006FBB29 /* inGameMusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +209,7 @@
 				A85D710B218E09D1009DDC97 /* RecordViewController.swift in Sources */,
 				A85D7109218E09BE009DDC97 /* DifficultViewController.swift in Sources */,
 				A85D7107218E09A8009DDC97 /* SettingsViewController.swift in Sources */,
+				A8C734E321A31241006FBB29 /* EnumModels.swift in Sources */,
 				A8DE0695219FA13100F5295F /* ModelatorController.swift in Sources */,
 				A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */,
 				A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */,
@@ -361,7 +369,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mcgcode.TapMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -380,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mcgcode.TapMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -27,16 +27,26 @@ class GameViewController: UIViewController {
     @IBOutlet weak var button_C: UIButton!
     @IBOutlet weak var label_Score: UILabel!
     @IBOutlet weak var label_Timer: UILabel!
+    @IBOutlet weak var imageTimer: UIImageView!
     //********* END VISUAL CONTROLERS *********
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGame()
+        Modelator.playAudio(player: audioPlayer.InGame)
         
         buttonContainer = [button_TL,button_BL,button_TR,button_BR,button_C]
         Modelator.formatButton(buttons: buttonContainer)
         setButtonColors()
         runTimer()
+        
+        //Fix layout for devices with Home Button
+        if(Modelator.detectHomeButtonModel()){
+            button_BL.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            button_BR.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            label_Timer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            imageTimer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        }
     }
     
     func loadGame(){
@@ -73,7 +83,7 @@ class GameViewController: UIViewController {
         let t = Modelator.convertColorToEnumValue(color: sender.backgroundColor!)
         produceVibration(evaluation: gameModel.evaluate(played: t))
         updateScoreLabel()
-        Modelator.buttonPressAnimation(button: sender)
+        Modelator.buttonPressAnimation(button: sender, playTap: false)
         
         if (gameModel.getDifficult()==Difficulty.Unfair){
             gameModel.changeCurrentConf()
