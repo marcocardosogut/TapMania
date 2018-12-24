@@ -12,6 +12,8 @@ import AudioToolbox
 class GameViewController: UIViewController {
     var gameModel : GameTapMania!
     var defaults : UserDefaults = UserDefaults.init()
+    var optionMusic : Bool = true
+    var optionVibration : Bool = true
     
     let colors = [#colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1),#colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1),#colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1),#colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)]
     var tick = 60
@@ -33,7 +35,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGame()
-        Modelator.playAudio(player: audioPlayer.InGame)
+        Modelator.playAudio(player: audioPlayer.InGame, play: optionMusic)
         
         buttonContainer = [button_TL,button_BL,button_TR,button_BR,button_C]
         Modelator.formatButton(buttons: buttonContainer)
@@ -57,6 +59,9 @@ class GameViewController: UIViewController {
         }else if(dificulty == Difficulty.Hard ){
             refreshInterval = 2
         }
+        
+        optionMusic = defaults.bool(forKey: "Setting_Sound")
+        optionVibration = defaults.bool(forKey: "Setting_Vibration")
     }
     
     func updateScoreValue(){
@@ -83,7 +88,7 @@ class GameViewController: UIViewController {
         let t = Modelator.convertColorToEnumValue(color: sender.backgroundColor!)
         produceVibration(evaluation: gameModel.evaluate(played: t))
         updateScoreLabel()
-        Modelator.buttonPressAnimation(button: sender, playTap: false)
+        Modelator.buttonPressAnimation(button: sender, playTap: false, play: optionMusic)
         
         if (gameModel.getDifficult()==Difficulty.Unfair){
             gameModel.changeCurrentConf()
@@ -101,6 +106,10 @@ class GameViewController: UIViewController {
     }
     
     private func produceVibration(evaluation: Bool){
+        if !optionVibration {
+            return
+        }
+        
         if !evaluation{
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()

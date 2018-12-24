@@ -40,6 +40,14 @@ class SettingsViewController: UIViewController {
         }else{
             sender.alpha = 0.5
         }
+        if(option == "Setting_Sound"){
+            if(!temp){
+                Modelator.stopAudio()
+            }
+            else{
+                Modelator.playAudio(player: .Menu, play: true)
+            }
+        }
     }
     
     func updateButtons() {

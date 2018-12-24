@@ -19,11 +19,12 @@ class MenuViewController: UIViewController {
     //********* END VISUALS *********
     var currentSelection : gameMenu!
     let defaults = UserDefaults.init()
+    var optionMusic : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults()
-        Modelator.playAudio(player: audioPlayer.Menu )
+        Modelator.playAudio(player: audioPlayer.Menu, play: optionMusic )
         
         print(UIDevice.current.name)
         
@@ -67,10 +68,12 @@ class MenuViewController: UIViewController {
             defaults.set(0, forKey: "Score_Unfair")
         }
         defaults.synchronize()
+        
+        optionMusic = defaults.bool(forKey: "Setting_Sound")
     }
     
     @IBAction func button_ReplaceSelection(_ sender: UIButton) {
-        Modelator.buttonPressAnimation(button: sender, playTap: true)
+        Modelator.buttonPressAnimation(button: sender, playTap: true, play: optionMusic)
         updateCurrentSelection(sender)
         switchButton(sender)
         updateLabel()
@@ -81,7 +84,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func selected_Touch(_ sender: UIButton) {
-        Modelator.buttonPressAnimation(button: sender, playTap: true)
+        Modelator.buttonPressAnimation(button: sender, playTap: true, play: optionMusic)
         changeMenuView()
     }
     

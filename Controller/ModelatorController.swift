@@ -67,13 +67,13 @@ public class Modelator {
     }
     
     //Play the visual animation and sound when a button is pressed
-    static func buttonPressAnimation (button: UIButton, playTap: Bool) {
+    static func buttonPressAnimation (button: UIButton, playTap: Bool, play : Bool) {
         UIButton.animate(withDuration: 0.01,
                          animations:{button.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)},
                          completion:{ finish in UIButton.animate(withDuration: 0.01,
                                                                  animations: {button.transform = CGAffineTransform.identity})})
-        if(playTap){
-            playAudio(player: .Tap)
+        if(playTap && play){
+            playAudio(player: .Tap, play: true)
         }
     }
     
@@ -102,7 +102,10 @@ public class Modelator {
     }
     
     //Play an audio corresponding with the received audioPlayer
-    static func playAudio(player: audioPlayer){
+    static func playAudio(player: audioPlayer, play : Bool){
+        if !play{
+            return
+        }
         switch player {
         case .Menu:
             if(!audioPlayers[0].isPlaying){
@@ -113,6 +116,12 @@ public class Modelator {
             audioPlayers[1].play()
         case .Tap:
             audioPlayers[2].play()
+        }
+    }
+    
+    static func stopAudio(){
+        for players in audioPlayers{
+            players.stop()
         }
     }
     

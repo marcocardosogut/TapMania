@@ -14,11 +14,12 @@ class GameOverViewController: UIViewController {
     @IBOutlet weak var label_NewRecord: UILabel!
     public var newRecord : Bool = false
     let defaults : UserDefaults = UserDefaults.init()
+    var optionMusic : Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Modelator.playAudio(player: .Menu)
+        optionMusic = defaults.bool(forKey: "Setting_Sound")
+        Modelator.playAudio(player: .Menu, play: optionMusic)
         updateNewRecordMenu()
         button_Menu.layer.cornerRadius = 0.5 * button_Menu.frame.size.height
         button_PlayAgain.layer.cornerRadius = 0.5 * button_PlayAgain.frame.size.height
