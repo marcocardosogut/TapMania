@@ -42,13 +42,7 @@ class GameViewController: UIViewController {
         setButtonColors()
         runTimer()
         
-        //Fix layout for devices with Home Button
-        if(Modelator.detectHomeButtonModel()){
-            button_BL.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-            button_BR.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-            label_Timer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-            imageTimer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        }
+        adjustVisual()
     }
     
     func loadGame(){
@@ -64,7 +58,20 @@ class GameViewController: UIViewController {
         optionVibration = defaults.bool(forKey: "Setting_Vibration")
     }
     
-    func updateScoreValue(){
+    @IBAction func button_Press(_ sender: UIButton) {
+        let t = Modelator.convertColorToEnumValue(color: sender.backgroundColor!)
+        produceVibration(evaluation: gameModel.evaluate(played: t))
+        updateScoreLabel()
+        Modelator.buttonPressAnimation(button: sender, playTap: false, play: optionMusic)
+        
+        if (gameModel.getDifficult()==Difficulty.Unfair){
+            gameModel.changeCurrentConf()
+            setButtonColors()
+        }
+    }
+    
+    //If a new record was stablished, updates its value
+    private func updateScoreValue(){
         var scoreKey = ""
         switch gameModel.getDifficult() {
         case .Easy:
@@ -84,18 +91,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func button_Press(_ sender: UIButton) {
-        let t = Modelator.convertColorToEnumValue(color: sender.backgroundColor!)
-        produceVibration(evaluation: gameModel.evaluate(played: t))
-        updateScoreLabel()
-        Modelator.buttonPressAnimation(button: sender, playTap: false, play: optionMusic)
-        
-        if (gameModel.getDifficult()==Difficulty.Unfair){
-            gameModel.changeCurrentConf()
-            setButtonColors()
-        }
-    }
-    
     //Set Button from GameController EnumValues
     private func setButtonColors() {
         var i = 0
@@ -105,6 +100,7 @@ class GameViewController: UIViewController {
         }
     }
     
+    //Produce vibration when the incorrect figure was pressed
     private func produceVibration(evaluation: Bool){
         if !optionVibration {
             return
@@ -124,6 +120,7 @@ class GameViewController: UIViewController {
     private func updateScoreLabel(){
         label_Score.text = String(gameModel.getScore())
     }
+    
     //Update Timer Label
     @objc private func updateTimer() {
         label_Timer.text = String(tick)
@@ -140,9 +137,20 @@ class GameViewController: UIViewController {
         }
     }
     
+    //Performs the segue transition
     private func changeView(){
         updateScoreValue()
         performSegue(withIdentifier: "segue_PlayToGameOver", sender: nil)
+    }
+    
+    //Fix layout for devices with Home Button
+    private func adjustVisual(){
+        if(Modelator.detectHomeButtonModel()){
+            button_BL.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            button_BR.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            label_Timer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            imageTimer.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        }
     }
 }
 

@@ -17,16 +17,15 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var button_Middle: UIButton!
     @IBOutlet weak var button_SelectedOption: UIButton!
     //********* END VISUALS *********
-    var currentSelection : gameMenu!
-    let defaults = UserDefaults.init()
-    var optionMusic : Bool = true
+    
+    var currentSelection : gameMenu!        //Stores the menu selected (Center of the display)
+    let defaults = UserDefaults.init()      //Stores the app defaults values. Used to store settigns and records
+    var optionMusic : Bool = true           //Stores if the music option is enabled
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults()
         Modelator.playAudio(player: audioPlayer.Menu, play: optionMusic )
-        
-        print(UIDevice.current.name)
         
         button_Bottom.backgroundColor = #colorLiteral(red: 0.9993136525, green: 0.5816664696, blue: 0.001078070956, alpha: 1)
         button_Selected.backgroundColor = #colorLiteral(red: 0.3477838635, green: 0.7905586958, blue: 0.9795156121, alpha: 1)
@@ -36,16 +35,28 @@ class MenuViewController: UIViewController {
         let buttonContainer = [button_Top,button_Bottom,button_Middle,button_Selected]
         Modelator.formatButton(buttons: buttonContainer as! [UIButton])
         
-        //Only for devices with small displays
-        if(Modelator.detectHomeButtonModel()){
-            button_Bottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-            button_SelectedOption.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: UIFont.Weight.heavy)
-            
-        }
-        // Do any additional setup after loading the view.
+        adjustVisual()
     }
     
-    func loadDefaults(){
+    @IBAction func button_ReplaceSelection(_ sender: UIButton) {
+        Modelator.buttonPressAnimation(button: sender, playTap: true, play: optionMusic)
+        updateCurrentSelection(sender)
+        switchButton(sender)
+        updateLabel()
+    }
+    
+    @IBAction func selectedLabel_Touch(_ sender: Any) {
+        changeMenuView()
+    }
+    
+    @IBAction func selected_Touch(_ sender: UIButton) {
+        Modelator.buttonPressAnimation(button: sender, playTap: true, play: optionMusic)
+        changeMenuView()
+    }
+    
+    //Loads all the default values of the app. In case that the app is ruuning for the first time
+    //or the default never was setup if will initialize the values with predefined settings
+    private func loadDefaults(){
         if (defaults.value(forKey: "Setting_Sound") == nil){
             defaults.set(true, forKey: "Setting_Sound")
         }
@@ -72,27 +83,13 @@ class MenuViewController: UIViewController {
         optionMusic = defaults.bool(forKey: "Setting_Sound")
     }
     
-    @IBAction func button_ReplaceSelection(_ sender: UIButton) {
-        Modelator.buttonPressAnimation(button: sender, playTap: true, play: optionMusic)
-        updateCurrentSelection(sender)
-        switchButton(sender)
-        updateLabel()
-    }
-    
-    @IBAction func selectedLabel_Touch(_ sender: Any) {
-        changeMenuView()
-    }
-    
-    @IBAction func selected_Touch(_ sender: UIButton) {
-        Modelator.buttonPressAnimation(button: sender, playTap: true, play: optionMusic)
-        changeMenuView()
-    }
-    
-    func changeMenuView(){
+    //Performs the segue transition to the selected menu
+    private func changeMenuView(){
         performSegue(withIdentifier: currentSelection.rawValue, sender: nil)
     }
     
-    func switchButton(_ sender: UIButton){
+    //Switches the selected button with the current selection (Menu)
+    private func switchButton(_ sender: UIButton){
         let image = button_Selected.currentImage
         let color = button_Selected.backgroundColor
         
@@ -103,7 +100,8 @@ class MenuViewController: UIViewController {
         sender.backgroundColor = color
     }
     
-    func updateCurrentSelection(_ sender: UIButton){
+    //Updates the menu selected using a given button
+    private func updateCurrentSelection(_ sender: UIButton){
         switch sender.backgroundColor {
         case #colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1):
             currentSelection = .Records
@@ -118,7 +116,8 @@ class MenuViewController: UIViewController {
         }
     }
     
-    func updateLabel(){
+    //Updates label of the selected menu
+    private func updateLabel(){
         var labelText = ""
         switch currentSelection! {
         case .Difficult:
@@ -132,5 +131,14 @@ class MenuViewController: UIViewController {
             break
         }
         button_SelectedOption.setTitle(labelText, for: .normal)
+    }
+    
+    //Only for devices with small displays. Adjust components to make it fit on the display
+    private func adjustVisual(){
+        if(Modelator.detectHomeButtonModel()){
+            button_Bottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+            button_SelectedOption.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: UIFont.Weight.heavy)
+            
+        }
     }
 }

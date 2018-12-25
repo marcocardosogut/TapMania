@@ -9,6 +9,7 @@
 import UIKit
 
 class RecordViewController: UIViewController {
+    //********* VISUALS *********
     @IBOutlet weak var button_Background: UIButton!
     @IBOutlet weak var button_Back: UIButton!
     @IBOutlet weak var label_Easy: UILabel!
@@ -19,8 +20,9 @@ class RecordViewController: UIViewController {
     @IBOutlet weak var label_HardScore: UILabel!
     @IBOutlet weak var label_Unfair: UILabel!
     @IBOutlet weak var label_UnfairScore: UILabel!
+    //********* END VISUALS *********
     
-    let defaults: UserDefaults = UserDefaults.init()
+    private let defaults: UserDefaults = UserDefaults.init()    //Stores the app defaults values. Used to store settigns and records
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +31,7 @@ class RecordViewController: UIViewController {
         Modelator.formatButton(buttons: [button_Background])
         Modelator.formatButtonBack(button: button_Back)
         
-        if(UIDevice.current.name.contains("SE") || UIDevice.current.name.contains("5")){
-            label_Medium.topAnchor.constraint(equalTo: label_Easy.bottomAnchor, constant: 10).isActive = true
-            label_MediumScore.topAnchor.constraint(equalTo: label_EasyScore.bottomAnchor, constant: 10).isActive = true
-            label_Hard.topAnchor.constraint(equalTo: label_Medium.bottomAnchor, constant: 10).isActive = true
-            label_HardScore.topAnchor.constraint(equalTo: label_MediumScore.bottomAnchor, constant: 10).isActive = true
-            label_Unfair.topAnchor.constraint(equalTo: label_Hard.bottomAnchor, constant: 10).isActive = true
-            label_UnfairScore.topAnchor.constraint(equalTo: label_HardScore.bottomAnchor, constant: 10).isActive = true
-        }
+        adjustVisual()
         
     }
     
@@ -44,14 +39,16 @@ class RecordViewController: UIViewController {
         performSegue(withIdentifier: "segue_RecordsToMainMenu", sender: nil)
     }
     
-    func loadDefaults(){
+    //Load the default score values
+    private func loadDefaults(){
         loadDefaults(key: "Score_Easy")
         loadDefaults(key: "Score_Medium")
         loadDefaults(key: "Score_Hard")
         loadDefaults(key: "Score_Unfair")
     }
     
-    func loadDefaults(key : String){
+    //Load the default values and update the label text
+    private func loadDefaults(key : String){
         let score = defaults.value(forKey: key) as! Int
         
         switch key {
@@ -68,7 +65,21 @@ class RecordViewController: UIViewController {
         }
     }
     
-    func updateLabelScore(label : UILabel, score : Int){
+    //Update Current score label
+    private func updateLabelScore(label : UILabel, score : Int){
         label.text = String(score)
     }
+    
+    //Make adjustments to fit the content in display of iPhone 5 and SE
+    private func adjustVisual(){
+        if(UIDevice.current.name.contains("SE") || UIDevice.current.name.contains("5")){
+            label_Medium.topAnchor.constraint(equalTo: label_Easy.bottomAnchor, constant: 10).isActive = true
+            label_MediumScore.topAnchor.constraint(equalTo: label_EasyScore.bottomAnchor, constant: 10).isActive = true
+            label_Hard.topAnchor.constraint(equalTo: label_Medium.bottomAnchor, constant: 10).isActive = true
+            label_HardScore.topAnchor.constraint(equalTo: label_MediumScore.bottomAnchor, constant: 10).isActive = true
+            label_Unfair.topAnchor.constraint(equalTo: label_Hard.bottomAnchor, constant: 10).isActive = true
+            label_UnfairScore.topAnchor.constraint(equalTo: label_HardScore.bottomAnchor, constant: 10).isActive = true
+        }
+    }
+    
 }

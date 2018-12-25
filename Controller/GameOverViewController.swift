@@ -9,12 +9,15 @@
 import UIKit
 
 class GameOverViewController: UIViewController {
+    //********* VISUALS *********
     @IBOutlet weak var button_Menu: UIButton!
     @IBOutlet weak var button_PlayAgain: UIButton!
     @IBOutlet weak var label_NewRecord: UILabel!
-    public var newRecord : Bool = false
-    let defaults : UserDefaults = UserDefaults.init()
-    var optionMusic : Bool = true
+    //********* END VISUALS *********
+    
+    public var newRecord : Bool = false                 //Stores if there was a new record
+    let defaults : UserDefaults = UserDefaults.init()   //Stores the app defaults values. Used to store settigns and records
+    var optionMusic : Bool = true                       //Stores if the music option is enabled
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,10 @@ class GameOverViewController: UIViewController {
     @IBAction func returnNewGame(_ sender: Any) {
         performSegue(withIdentifier: "segue_GameOverToPlay", sender: nil)
     }
-    public func updateNewRecordMenu(){
+    
+    //Set the new records property in the dafaults of the app.
+    //Set manage to show the new record label
+    private func updateNewRecordMenu(){
         newRecord = defaults.value(forKey: "NewRecord") as! Bool
         defaults.set(false, forKey: "NewRecord")
         defaults.synchronize()

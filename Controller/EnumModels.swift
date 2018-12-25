@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Enum used for segue transitions
 enum gameMenu : String {
     case Play = "segue_MainMenuToPlay"
     case Settings = "segue_MainMenuToSettings"
@@ -15,6 +16,7 @@ enum gameMenu : String {
     case Difficult = "segue_MainMenuToDifficult"
 }
 
+//Enum used to select the proper audio player
 enum audioPlayer {
     case Menu
     case InGame

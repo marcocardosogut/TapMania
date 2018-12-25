@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Enum for Ball representation
 enum BallValue :Int {
     case Empty = -1
     case Green = 0
@@ -16,6 +16,7 @@ enum BallValue :Int {
     case Blue = 3
 }
 
+//Enum for Difficult representation
 enum Difficulty : Int {
     case Easy = 0
     case Medium = 1
@@ -23,31 +24,33 @@ enum Difficulty : Int {
     case Unfair = 3
 }
 
+//Game core class
 class GameTapMania {
+    //Global props
     private var score :Int
     private var _endOfGame = false
     private let _difficult : Difficulty
     private var currentConf : [BallValue]
     
+    //Constructor
     init(difficult: Difficulty){
         _difficult = difficult
         score = 0
         currentConf = [BallValue.Blue,BallValue.Green,BallValue.Red,BallValue.Orange,BallValue.Blue]
         changeCurrentConf()
     }
-    
+    //Getters functions
     public func getDifficult() -> Difficulty{
         return _difficult
     }
-    
     public func getScore()->Int {
         return score;
     }
-    
     public func getCurrentConf()->[BallValue] {
         return currentConf
     }
     
+    //Evaluate the user selection and controls the score
     public func evaluate(played : BallValue) ->Bool {
         if(_endOfGame) {
             return false
@@ -61,17 +64,29 @@ class GameTapMania {
             return false
         }
     }
+    //Set end of game flag to true
+    public func endOfGame() {
+        _endOfGame = true
+    }
+    //Returns if the game is over
+    public func gameOver() -> Bool {
+        return _endOfGame
+    }
     
+    //Increase score by 1
     private func increaseScore() {
         score = score + 1;
     }
     
+    //Decrease score by 1. It decrease the score while it is a positive number.
     private func decreaseScore() {
         if score > 0 {
             score = score - 1
         }
     }
     
+    //Change the the current balls configurations using probabilities associated with the
+    //difficult level
     public func changeCurrentConf() {
         if _endOfGame {
             return
@@ -88,6 +103,7 @@ class GameTapMania {
         }
     }
     
+    //Change the current configuration using random algorithm of shuffle
     private func changeConfProbapility(probrability: Int) {
         let random = Int.random(in: 0..<10)
         if random>=probrability {
@@ -104,11 +120,5 @@ class GameTapMania {
         }
     }
     
-    public func endOfGame() {
-        _endOfGame = true
-    }
-    
-    public func gameOver() -> Bool {
-        return _endOfGame
-    }
+
 }

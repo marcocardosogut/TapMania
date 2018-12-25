@@ -12,10 +12,10 @@ import UIKit
 
 
 public class Modelator {
-    //Store 3 Players, Menu Music, In Game, and Sound Effects
+    //Stores 3 Players, Menu Music, In Game, and Sound Effects
     static var audioPlayers : [AVAudioPlayer] = [AVAudioPlayer(), AVAudioPlayer(), AVAudioPlayer()]
     
-    //Convert Color to EnumValue
+    //Converts Color to EnumValue
     static func convertColorToEnumValue(color: UIColor)->BallValue {
         switch color {
         case #colorLiteral(red: 0.9996238351, green: 0.1655850112, blue: 0.3347808123, alpha: 1):
@@ -31,7 +31,8 @@ public class Modelator {
         }
         return BallValue.Empty
     }
-    //Convert EnumValue to Color
+    
+    //Converts EnumValue to Color
     static func convertEnumValueToColor(enumValue : BallValue)->UIColor {
         switch enumValue {
         case BallValue.Red:
@@ -48,7 +49,7 @@ public class Modelator {
         return #colorLiteral(red: 0.2870728374, green: 0.8392896056, blue: 0.3857751787, alpha: 1)
     }
     
-    //Convert an array of buttons in to round buttons with shadows effect
+    //Converts an array of buttons in to round buttons with shadows effect
     static func formatButton(buttons: [UIButton]){
         for b in buttons {
             b.layer.cornerRadius = 0.5 * b.frame.size.height
@@ -59,14 +60,14 @@ public class Modelator {
         }
     }
     
-    //Format the back button to the entire with of the display
+    //Formats the back button to the entire with of the display
     static func formatButtonBack(button: UIButton){
         let height = UIScreen.main.bounds.height
         let widht  = UIScreen.main.bounds.width
         button.frame = CGRect(x: 0, y: 0, width: widht, height: height)
     }
     
-    //Play the visual animation and sound when a button is pressed
+    //Plays the visual animation and sound when a button is pressed
     static func buttonPressAnimation (button: UIButton, playTap: Bool, play : Bool) {
         UIButton.animate(withDuration: 0.01,
                          animations:{button.transform = CGAffineTransform(scaleX: 0.975, y: 0.96)},
@@ -77,6 +78,7 @@ public class Modelator {
         }
     }
     
+    //Loads all the audio players, for tap, in game and menu audio
     static func loadAudioPlayers(){
         do {
             audioPlayers[0] = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "menuMusic", ofType: "wav")!))
@@ -101,7 +103,7 @@ public class Modelator {
         }
     }
     
-    //Play an audio corresponding with the received audioPlayer
+    //Plays an audio corresponding with the received audioPlayer
     static func playAudio(player: audioPlayer, play : Bool){
         if !play{
             return
@@ -119,13 +121,14 @@ public class Modelator {
         }
     }
     
+    //Stops all audio players
     static func stopAudio(){
         for players in audioPlayers{
             players.stop()
         }
     }
     
-    //Check if the current device is a generation between 5s and 8+
+    //Checks if the current device is a generation between 5s and 8+
     static func detectHomeButtonModel ()->Bool{
         let oldModels = ["SE","5","6","7","8"]
         for models in oldModels{

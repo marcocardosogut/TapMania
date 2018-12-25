@@ -9,16 +9,18 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    //********* VISUALS *********
     @IBOutlet weak var button_Background: UIButton!
     @IBOutlet weak var button_Back: UIButton!
     @IBOutlet weak var button_Sound: UIButton!
     @IBOutlet weak var button_Vibration: UIButton!
-    let defaults = UserDefaults.init()
+    //********* END VISUALS *********
+    
+    let defaults = UserDefaults.init()      //Stores the app defaults values. Used to store settigns and records
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateButtons()
-        //loadDefaults()
         Modelator.formatButton(buttons: [button_Background])
         Modelator.formatButtonBack(button: button_Back)
     }
@@ -50,7 +52,8 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func updateButtons() {
+    //Update the alpha value of the buttons. To represent enable and disable
+    private func updateButtons() {
         if (!(defaults.value(forKey: "Setting_Sound") as! Bool)){
             button_Sound.alpha = 0.5
         }
