@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A85D70E0218CB73B009DDC97 /* TapMania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapMania.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85D70E0218CB73B009DDC97 /* TappingMania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappingMania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85D70E3218CB73B009DDC97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85D70E5218CB73B009DDC97 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		A85D70E8218CB73B009DDC97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		A85D70E1218CB73B009DDC97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A85D70E0218CB73B009DDC97 /* TapMania.app */,
+				A85D70E0218CB73B009DDC97 /* TappingMania.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,9 +132,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A85D70DF218CB73B009DDC97 /* TapMania */ = {
+		A85D70DF218CB73B009DDC97 /* TappingMania */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A85D70F2218CB73D009DDC97 /* Build configuration list for PBXNativeTarget "TapMania" */;
+			buildConfigurationList = A85D70F2218CB73D009DDC97 /* Build configuration list for PBXNativeTarget "TappingMania" */;
 			buildPhases = (
 				A85D70DC218CB73B009DDC97 /* Sources */,
 				A85D70DD218CB73B009DDC97 /* Frameworks */,
@@ -144,9 +144,9 @@
 			);
 			dependencies = (
 			);
-			name = TapMania;
+			name = TappingMania;
 			productName = TapMania;
-			productReference = A85D70E0218CB73B009DDC97 /* TapMania.app */;
+			productReference = A85D70E0218CB73B009DDC97 /* TappingMania.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +164,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A85D70DB218CB73B009DDC97 /* Build configuration list for PBXProject "TapMania" */;
+			buildConfigurationList = A85D70DB218CB73B009DDC97 /* Build configuration list for PBXProject "TappingMania" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -177,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A85D70DF218CB73B009DDC97 /* TapMania */,
+				A85D70DF218CB73B009DDC97 /* TappingMania */,
 			);
 		};
 /* End PBXProject section */
@@ -366,7 +366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mcgcode.TapMania;
+				PRODUCT_BUNDLE_IDENTIFIER = mcgcode.TappingMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -385,7 +385,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mcgcode.TapMania;
+				PRODUCT_BUNDLE_IDENTIFIER = mcgcode.TappingMania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -395,7 +395,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A85D70DB218CB73B009DDC97 /* Build configuration list for PBXProject "TapMania" */ = {
+		A85D70DB218CB73B009DDC97 /* Build configuration list for PBXProject "TappingMania" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A85D70F0218CB73D009DDC97 /* Debug */,
@@ -404,7 +404,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A85D70F2218CB73D009DDC97 /* Build configuration list for PBXNativeTarget "TapMania" */ = {
+		A85D70F2218CB73D009DDC97 /* Build configuration list for PBXNativeTarget "TappingMania" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A85D70F3218CB73D009DDC97 /* Debug */,

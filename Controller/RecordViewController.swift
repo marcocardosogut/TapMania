@@ -1,6 +1,6 @@
 //
 //  RecordViewController.swift
-//  TapMania
+//  TappingMania
 //
 //  Created by Marco Cardoso on 11/3/18.
 //  Copyright © 2018 MCG_CODE. All rights reserved.

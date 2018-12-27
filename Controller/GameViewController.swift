@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  TapMania
+//  TappingMania
 //
 //  Created by Marco Cardoso on 11/2/18.
 //  Copyright © 2018 MCG_CODE. All rights reserved.
