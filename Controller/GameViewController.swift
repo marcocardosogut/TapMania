@@ -70,6 +70,10 @@ class GameViewController: UIViewController {
         }
     }
     
+    @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+        performSegue(withIdentifier: "segue_PlayToMainMenu", sender: nil)
+    }
+    
     //If a new record was stablished, updates its value
     private func updateScoreValue(){
         var scoreKey = ""

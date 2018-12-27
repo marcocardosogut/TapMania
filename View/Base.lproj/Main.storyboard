@@ -548,7 +548,7 @@
                                 <rect key="frame" x="248" y="167.5" width="400" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="c1k-Bh-WtI"/>
-                                    <constraint firstAttribute="width" constant="400" id="q3j-oT-rb8"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="q3j-oT-rb8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="56"/>
                                 <state key="normal" title="PLAY">
@@ -589,6 +589,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xin-Bp-DKS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lZI-LB-mGp"/>
                     <connections>
                         <outlet property="button_Bottom" destination="fld-Iz-64o" id="AOe-yJ-g66"/>
                         <outlet property="button_Middle" destination="R6m-Go-KpE" id="NeA-Hy-M8D"/>
@@ -697,6 +698,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.14549741148948669" green="0.15208700299263" blue="0.19608399271965027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Eui-vD-kue" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6IO-Fe-Za7"/>
                             <constraint firstItem="Bk8-Sk-QNZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="8u0-NQ-14L"/>
@@ -718,6 +720,9 @@
                             <constraint firstItem="AsZ-Ot-56U" firstAttribute="leading" secondItem="FaW-1d-TeC" secondAttribute="trailing" constant="8.3300000000000001" id="pH6-UH-UDb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hik-kv-ve5" appends="YES" id="5Kb-7G-Bxq"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="button_BL" destination="xl3-8T-z7F" id="Rmj-uf-v7h"/>
@@ -729,9 +734,15 @@
                         <outlet property="label_Score" destination="Bk8-Sk-QNZ" id="DWD-79-IXu"/>
                         <outlet property="label_Timer" destination="AsZ-Ot-56U" id="ay0-AZ-k8i"/>
                         <segue destination="Tyg-GL-PHc" kind="show" identifier="segue_PlayToGameOver" id="YOh-xo-dPC"/>
+                        <segue destination="078-Q0-PB5" kind="modal" identifier="segue_PlayToMainMenu" modalTransitionStyle="flipHorizontal" id="hqR-JT-oj8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="hik-kv-ve5">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="Pe9-zR-Sru"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="84" y="529"/>
         </scene>
@@ -834,6 +845,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7wb-a8-SJo"/>
-        <segue reference="dlh-b3-vFY"/>
+        <segue reference="hqR-JT-oj8"/>
     </inferredMetricsTieBreakers>
 </document>
