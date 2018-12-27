@@ -29,10 +29,7 @@ class RecordViewController: UIViewController {
         loadDefaults()
         
         Modelator.formatButton(buttons: [button_Background])
-        Modelator.formatButtonBack(button: button_Back)
-        
-        adjustVisual()
-        
+        Modelator.formatButtonBack(button: button_Back)        
     }
     
     @IBAction func returnMainMenu(_ sender: Any) {
@@ -69,17 +66,4 @@ class RecordViewController: UIViewController {
     private func updateLabelScore(label : UILabel, score : Int){
         label.text = String(score)
     }
-    
-    //Make adjustments to fit the content in display of iPhone 5 and SE
-    private func adjustVisual(){
-        if(UIDevice.current.name.contains("SE") || UIDevice.current.name.contains("5")){
-
-            
-            view_Medium.topAnchor.constraint(equalTo: view_Easy.bottomAnchor, constant: -15).isActive = true
-            view_Hard.topAnchor.constraint(equalTo: view_Medium.bottomAnchor, constant: -15).isActive = true
-            view_Unfair.topAnchor.constraint(equalTo: view_Hard.bottomAnchor, constant: -15).isActive = true
-            
-        }
-    }
-    
 }

@@ -135,7 +135,7 @@ class MenuViewController: UIViewController {
     
     //Only for devices with small displays. Adjust components to make it fit on the display
     private func adjustVisual(){
-        if(Modelator.detectHomeButtonModel()){
+        if(Modelator.detectHomeButtonModel() && !UIDevice.current.name.contains("Plus")){
             button_Bottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
             button_SelectedOption.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: UIFont.Weight.heavy)
             
