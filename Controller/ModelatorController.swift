@@ -126,6 +126,7 @@ public class Modelator {
         for players in audioPlayers{
             players.stop()
         }
+        loadAudioPlayers()
     }
     
     //Checks if the current device is a generation between 5s and 8+

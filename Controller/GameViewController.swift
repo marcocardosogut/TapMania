@@ -71,6 +71,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
+        Modelator.stopAudio()
         performSegue(withIdentifier: "segue_PlayToMainMenu", sender: nil)
     }
     
