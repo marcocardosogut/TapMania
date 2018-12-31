@@ -6,11 +6,14 @@
 //  Copyright © 2018 MCG_CODE. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import AVFoundation
+import UIKit
+import AVKit
 
 class MenuViewController: UIViewController {
     //********* VISUALS *********
+    @IBOutlet var generalView: UIView!
     @IBOutlet weak var button_Bottom: UIButton!
     @IBOutlet weak var button_Selected: UIButton!
     @IBOutlet weak var button_Top: UIButton!
@@ -24,6 +27,15 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+        let path = Bundle.main.path(forResource: "tutorialVideo", ofType: "mov")
+        let video = AVPlayer(url: URL(fileURLWithPath: path!))
+        let videoPlayer = AVPlayerViewController()
+        videoPlayer.player = video
+        present(videoPlayer, animated: true, completion: {video.play()})
+         */
+        
         loadDefaults()
         Modelator.playAudio(player: audioPlayer.Menu, play: optionMusic )
         
@@ -57,6 +69,15 @@ class MenuViewController: UIViewController {
     //Loads all the default values of the app. In case that the app is ruuning for the first time
     //or the default never was setup if will initialize the values with predefined settings
     private func loadDefaults(){
+        
+
+        /*
+        if(defaults.value(forKey: "Play_Tutorial") == nil){
+            defaults.set(true, forKey: "Play_Tutorial")
+            Modelator.playTutorialVideo()
+        }
+         */
+        
         if (defaults.value(forKey: "Setting_Sound") == nil){
             defaults.set(true, forKey: "Setting_Sound")
         }
@@ -141,5 +162,10 @@ class MenuViewController: UIViewController {
             button_SelectedOption.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: UIFont.Weight.heavy)
             }
         }
+    }
+    
+    //Play video tutorial
+    static func playTutorialVideo(){
+
     }
 }

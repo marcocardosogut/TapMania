@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
-
+import AVKit
 
 public class Modelator {
     //Stores 3 Players, Menu Music, In Game, and Sound Effects

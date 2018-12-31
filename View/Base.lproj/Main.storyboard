@@ -13,7 +13,7 @@
         <!--Settings View Controller-->
         <scene sceneID="DD8-lb-gcP">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="IEq-6i-JiE" customClass="SettingsViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="IEq-6i-JiE" customClass="SettingsViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecg-W7-eLX">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
         <!--Record View Controller-->
         <scene sceneID="JUN-6R-dcg">
             <objects>
-                <viewController id="bBE-f1-19G" customClass="RecordViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bBE-f1-19G" customClass="RecordViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GoM-jA-JjB">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,7 +292,7 @@
         <!--Difficult View Controller-->
         <scene sceneID="87c-Ua-yRz">
             <objects>
-                <viewController id="tGU-MW-LOv" customClass="DifficultViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tGU-MW-LOv" customClass="DifficultViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P3k-QD-9nh">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -500,7 +500,7 @@
         <!--Menu View Controller-->
         <scene sceneID="D2D-ak-Xt3">
             <objects>
-                <viewController id="078-Q0-PB5" customClass="MenuViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="078-Q0-PB5" customClass="MenuViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIi-Bz-pOR">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -596,6 +596,7 @@
                         <outlet property="button_Selected" destination="G2B-lX-XUH" id="qff-7B-ezN"/>
                         <outlet property="button_SelectedOption" destination="G56-gX-wIY" id="QcN-lQ-IzM"/>
                         <outlet property="button_Top" destination="Sc4-ev-GQw" id="irT-gK-nuK"/>
+                        <outlet property="generalView" destination="cIi-Bz-pOR" id="iND-3R-JtB"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segue_MainMenuToPlay" id="7wb-a8-SJo"/>
                         <segue destination="IEq-6i-JiE" kind="show" identifier="segue_MainMenuToSettings" id="J1j-Iq-6rx"/>
                         <segue destination="bBE-f1-19G" kind="show" identifier="segue_MainMenuToRecords" id="gEm-UM-e78"/>
@@ -609,7 +610,7 @@
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -749,7 +750,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="6yW-Uk-t7Q">
             <objects>
-                <viewController id="Tyg-GL-PHc" customClass="GameOverViewController" customModule="TapMania" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tyg-GL-PHc" customClass="GameOverViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H97-W7-oZm">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
