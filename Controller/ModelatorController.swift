@@ -129,14 +129,15 @@ public class Modelator {
         loadAudioPlayers()
     }
     
-    //Checks if the current device is a generation between 5s and 8+
+    //Checks if the current device is a generation between 5s and 8+. Uses screen resolution for the response
     static func detectHomeButtonModel ()->Bool{
-        let oldModels = ["SE","5","6","7","8"]
-        for models in oldModels{
-            if(UIDevice.current.name.contains(models)){
-                return true
-            }
-        }
-        return false
+        let resolution = UIScreen.main.nativeBounds.height
+        return (resolution == 1920 || resolution <= 1334)
+    }
+    
+    //Check if the current device is a Plus model. Uses screen resolution for the response
+    static func detectHomeButtonPlusModel ()->Bool{
+        let resolution = UIScreen.main.nativeBounds.height
+        return resolution == 1920
     }
 }
