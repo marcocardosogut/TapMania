@@ -19,11 +19,13 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var button_Top: UIButton!
     @IBOutlet weak var button_Middle: UIButton!
     @IBOutlet weak var button_SelectedOption: UIButton!
+    @IBOutlet weak var button_Demo: UIButton!
     //********* END VISUALS *********
     
-    var currentSelection : gameMenu!        //Stores the menu selected (Center of the display)
-    let defaults = UserDefaults.init()      //Stores the app defaults values. Used to store settigns and records
-    var optionMusic : Bool = true           //Stores if the music option is enabled
+    private var currentSelection : gameMenu!        //Stores the menu selected (Center of the display)
+    private let defaults = UserDefaults.init()      //Stores the app defaults values. Used to store settigns and records
+    private var optionMusic : Bool = true           //Stores if the music option is enabled
+    private var playDemo : Bool = false             //Stores if demo needs to be played
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,13 @@ class MenuViewController: UIViewController {
         Modelator.formatButton(buttons: buttonContainer as! [UIButton])
         
         adjustVisual()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if playDemo{
+            buttonDemo_TouchInside(button_Demo)
+        }
     }
     
     @IBAction func button_ReplaceSelection(_ sender: UIButton) {
@@ -57,19 +66,18 @@ class MenuViewController: UIViewController {
         changeMenuView()
     }
     
+    @IBAction func buttonDemo_TouchInside(_ sender: UIButton) {
+        performSegue(withIdentifier: "segue_MainMenuToPlayer", sender: nil)
+    }
+    
     //Loads all the default values of the app. In case that the app is ruuning for the first time
     //or the default never was setup if will initialize the values with predefined settings
     private func loadDefaults(){
         
-        performSegue(withIdentifier: "segue_MainMenuToPlayer", sender: nil)
-
-        /*
-        if(defaults.value(forKey: "Play_Tutorial") == nil){
-            defaults.set(true, forKey: "Play_Tutorial")
-            Modelator.playTutorialVideo()
+        if (defaults.value(forKey: "Play_Demo") == nil){
+            defaults.set(true, forKey: "Play_Demo")
+            playDemo = true
         }
-         */
-        
         if (defaults.value(forKey: "Setting_Sound") == nil){
             defaults.set(true, forKey: "Setting_Sound")
         }

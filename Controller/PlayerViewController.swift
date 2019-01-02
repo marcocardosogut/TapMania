@@ -31,6 +31,10 @@ class PlayerViewController: UIViewController {
 
     }
     
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+    
     @objc private func changeView(note: NSNotification){
         performSegue(withIdentifier: "segue_PlayerToMainMenu", sender: nil)
     }

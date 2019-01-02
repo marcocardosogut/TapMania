@@ -48,5 +48,4 @@ class GameOverViewController: UIViewController {
             label_NewRecord.isHidden = true
         }
     }
-    
 }
