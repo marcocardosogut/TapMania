@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="078-Q0-PB5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Ae-Ro-7t8">
     <device id="retina6_1" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="ePx-41-6Vq">
+            <objects>
+                <viewController id="5Ae-Ro-7t8" userLabel="Player View Controller" customClass="PlayerViewController" customModule="TappingMania" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DYJ-Zm-86L">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-zB-cE5">
+                                <rect key="frame" x="394" y="10" width="108" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNG-XE-6Aq">
+                                <rect key="frame" x="366" y="342" width="164" height="41"/>
+                                <color key="backgroundColor" red="1" green="0.57393101660000001" blue="0.093523979339999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="amq-2C-KZp"/>
+                                    <constraint firstAttribute="width" constant="164" id="gQO-gm-0os"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTouchInside:" destination="5Ae-Ro-7t8" eventType="touchUpInside" id="b6s-CQ-dwQ"/>
+                                    <action selector="returnNewGame:" destination="Tyg-GL-PHc" eventType="touchUpInside" id="Ah7-pq-qOC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14549741150000001" green="0.152087003" blue="0.19608399269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="M2g-zB-cE5" firstAttribute="top" secondItem="AbK-4W-c5w" secondAttribute="top" constant="10" id="1Wg-Rs-6Qp"/>
+                            <constraint firstItem="M2g-zB-cE5" firstAttribute="centerX" secondItem="DYJ-Zm-86L" secondAttribute="centerX" id="JUU-c5-flf"/>
+                            <constraint firstItem="AbK-4W-c5w" firstAttribute="bottom" secondItem="hNG-XE-6Aq" secondAttribute="bottom" constant="10" id="XAa-3y-iV6"/>
+                            <constraint firstItem="hNG-XE-6Aq" firstAttribute="centerX" secondItem="DYJ-Zm-86L" secondAttribute="centerX" id="hRT-Nu-45j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AbK-4W-c5w"/>
+                    </view>
+                    <connections>
+                        <outlet property="button_Skip" destination="hNG-XE-6Aq" id="nNV-wa-wcV"/>
+                        <outlet property="lable_Demo" destination="M2g-zB-cE5" id="hex-rH-npl"/>
+                        <segue destination="078-Q0-PB5" kind="show" identifier="segue_PlayerToMainMenu" id="Ccg-bP-fLp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oel-E8-K0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1615.1785714285713" y="-26.086956521739133"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="DD8-lb-gcP">
             <objects>
@@ -601,6 +651,7 @@
                         <segue destination="IEq-6i-JiE" kind="show" identifier="segue_MainMenuToSettings" id="J1j-Iq-6rx"/>
                         <segue destination="bBE-f1-19G" kind="show" identifier="segue_MainMenuToRecords" id="gEm-UM-e78"/>
                         <segue destination="tGU-MW-LOv" kind="show" identifier="segue_MainMenuToDifficult" id="Yiv-T7-LO2"/>
+                        <segue destination="5Ae-Ro-7t8" kind="show" identifier="segue_MainMenuToPlayer" id="dkI-dQ-Fhr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLg-AR-2h9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -845,7 +896,7 @@
         <image name="1497599525_cool" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7wb-a8-SJo"/>
-        <segue reference="hqR-JT-oj8"/>
+        <segue reference="ILC-ET-TAO"/>
+        <segue reference="Ccg-bP-fLp"/>
     </inferredMetricsTieBreakers>
 </document>

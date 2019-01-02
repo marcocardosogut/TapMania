@@ -27,15 +27,6 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /*
-        let path = Bundle.main.path(forResource: "tutorialVideo", ofType: "mov")
-        let video = AVPlayer(url: URL(fileURLWithPath: path!))
-        let videoPlayer = AVPlayerViewController()
-        videoPlayer.player = video
-        present(videoPlayer, animated: true, completion: {video.play()})
-         */
-        
         loadDefaults()
         Modelator.playAudio(player: audioPlayer.Menu, play: optionMusic )
         
@@ -70,6 +61,7 @@ class MenuViewController: UIViewController {
     //or the default never was setup if will initialize the values with predefined settings
     private func loadDefaults(){
         
+        performSegue(withIdentifier: "segue_MainMenuToPlayer", sender: nil)
 
         /*
         if(defaults.value(forKey: "Play_Tutorial") == nil){
@@ -162,10 +154,5 @@ class MenuViewController: UIViewController {
             button_SelectedOption.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: UIFont.Weight.heavy)
             }
         }
-    }
-    
-    //Play video tutorial
-    static func playTutorialVideo(){
-
     }
 }

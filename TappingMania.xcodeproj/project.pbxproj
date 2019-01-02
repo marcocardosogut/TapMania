@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A81FA2B321DABEF200D6D88F /* tutorialVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = A81FA2B221DABEF100D6D88F /* tutorialVideo.mov */; };
+		A81FA2B521DC695E00D6D88F /* tutorialVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = A81FA2B221DABEF100D6D88F /* tutorialVideo.mov */; };
+		A81FA2B721DC6F4600D6D88F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81FA2B621DC6F4600D6D88F /* PlayerViewController.swift */; };
 		A85D70E4218CB73B009DDC97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D70E3218CB73B009DDC97 /* AppDelegate.swift */; };
 		A85D70E6218CB73B009DDC97 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85D70E5218CB73B009DDC97 /* GameViewController.swift */; };
 		A85D70E9218CB73B009DDC97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85D70E7218CB73B009DDC97 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		A81FA2B221DABEF100D6D88F /* tutorialVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = tutorialVideo.mov; sourceTree = "<group>"; };
+		A81FA2B621DC6F4600D6D88F /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		A85D70E0218CB73B009DDC97 /* TappingMania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TappingMania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85D70E3218CB73B009DDC97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85D70E5218CB73B009DDC97 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -59,10 +61,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A85D70D7218CB73B009DDC97 = {
+		A81FA2B421DC695100D6D88F /* Video */ = {
 			isa = PBXGroup;
 			children = (
 				A81FA2B221DABEF100D6D88F /* tutorialVideo.mov */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		A85D70D7218CB73B009DDC97 = {
+			isa = PBXGroup;
+			children = (
+				A81FA2B421DC695100D6D88F /* Video */,
 				A8C734DB21A25020006FBB29 /* Audio */,
 				A85D70F7218CB7BA009DDC97 /* Controller */,
 				A85D70F6218CB7B5009DDC97 /* View */,
@@ -118,6 +128,7 @@
 				A85D710C218E09FF009DDC97 /* MenuViewController.swift */,
 				A8DE0694219FA13100F5295F /* ModelatorController.swift */,
 				A8C734E221A31241006FBB29 /* EnumModels.swift */,
+				A81FA2B621DC6F4600D6D88F /* PlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,13 +201,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81FA2B521DC695E00D6D88F /* tutorialVideo.mov in Resources */,
 				A85D70EE218CB73D009DDC97 /* LaunchScreen.storyboard in Resources */,
 				A8C734E521A31685006FBB29 /* menuMusic.wav in Resources */,
 				A85D70EB218CB73D009DDC97 /* Assets.xcassets in Resources */,
 				A85D70E9218CB73B009DDC97 /* Main.storyboard in Resources */,
 				A8C734DF21A25043006FBB29 /* tap.wav in Resources */,
 				A8C734E121A30F7B006FBB29 /* inGameMusic.mp3 in Resources */,
-				A81FA2B321DABEF200D6D88F /* tutorialVideo.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +227,7 @@
 				A8C734E321A31241006FBB29 /* EnumModels.swift in Sources */,
 				A8DE0695219FA13100F5295F /* ModelatorController.swift in Sources */,
 				A85D70F9218CB82F009DDC97 /* GameTapMania.swift in Sources */,
+				A81FA2B721DC6F4600D6D88F /* PlayerViewController.swift in Sources */,
 				A85D710D218E09FF009DDC97 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
